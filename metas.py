@@ -1,1 +1,1 @@
-print('Tuca gay')
+print('Braz gay')
