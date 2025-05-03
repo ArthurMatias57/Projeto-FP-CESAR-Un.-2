@@ -9,9 +9,7 @@ def nova_meta(adicionar_meta):
         arquivo.write(f'{adicionar_meta}\n')
     return ()
 
-    #open and read the file after the appending:
 def ler_meta():
-    dic_metas = []
     with open("Metas_de_saude.txt") as arquivo:
         print(arquivo.read())
     return(ler_meta)
@@ -19,6 +17,10 @@ def ler_meta():
 def limpar_meta():
     with open("Metas_de_saude.txt", "w") as arquivo:
         arquivo.write('')
+
+def apagar_meta():
+    with open("Metas_de_saude.txt", "r") as arquivo:
+        linhas = arquivo.readlines()
 
 while True:
     escolha = int(input('Você deseja: [1] Adicionar, [2] Apagar, [3] Marcar como feito, [4] Alterar, [5] Mostrar, [6] Limpar, [7] Sair: '))
