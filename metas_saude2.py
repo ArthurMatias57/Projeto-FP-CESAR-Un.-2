@@ -44,7 +44,7 @@ while True:
             list_metas.clear()
         case 2 :
             os.system('cls')
-            with open (nome_do_arquivo, 'r') as arquivo:
+            with open (nome_do_arquivo, 'r', encoding='utf8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
             print(list_metas)
             clean_metas()
@@ -56,12 +56,12 @@ while True:
             list_metas.clear()
         case 3 :
             os.system('cls')
-            with open (nome_do_arquivo, 'r') as arquivo:
+            with open (nome_do_arquivo, 'r', encoding='utf8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
             indice = int(input('Digite o indice concluido: '))
             done_metas(indice)
             clean_metas()
-            with open (nome_do_arquivo, 'w') as arquivo:
+            with open (nome_do_arquivo, 'w', encoding='utf8') as arquivo:
                 for nome in list_metas:
                     arquivo.write(f'{nome}\n')
             list_metas.clear()
@@ -69,7 +69,7 @@ while True:
             os.system('cls')
             ...
         case 5 :
-            with open (nome_do_arquivo, 'r') as arquivo:
+            with open (nome_do_arquivo, 'r', encoding='utf8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
             os.system('cls')
             template()
