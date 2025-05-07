@@ -19,8 +19,8 @@ def done_metas(indice):
     list_metas[indice] = (f'{list_metas[indice]} OK')
     return 
 
-def change_metas(indice):
-    list_metas[indice] = (f'{list_metas[indice]} OK')
+def change_metas(indice, nova_meta):
+    list_metas[indice] = (f'{nova_meta}')
     return 
 
 def clean_metas():
@@ -30,7 +30,7 @@ def clean_metas():
 
 
 while True:
-    escolha = int(input('Você deseja: [1] Adicionar, [2] Apagar, [3] Marcar como feito, [4] Alterar, [5] Mostrar, [6] Limpar, [7] Sair: '))
+    escolha = int(input('[1] Adicionar\n[2] Apagar\n[3] Marcar como feito\n[4] Alterar\n[5] Mostrar\n[6] Limpar\n[7] Sair\nVocê deseja: '))
 
     match escolha:
         case 1 :
@@ -44,7 +44,7 @@ while True:
             list_metas.clear()
         case 2 :
             os.system('cls')
-            with open (nome_do_arquivo, 'r', encoding='utf8') as arquivo:
+            with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
             print(list_metas)
             clean_metas()
@@ -56,26 +56,35 @@ while True:
             list_metas.clear()
         case 3 :
             os.system('cls')
-            with open (nome_do_arquivo, 'r', encoding='utf8') as arquivo:
+            with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
             indice = int(input('Digite o indice concluido: '))
             done_metas(indice)
             clean_metas()
-            with open (nome_do_arquivo, 'w', encoding='utf8') as arquivo:
+            with open (nome_do_arquivo, 'w', encoding='utf-8') as arquivo:
                 for nome in list_metas:
                     arquivo.write(f'{nome}\n')
             list_metas.clear()
         case 4 :
             os.system('cls')
-            ...
-        case 5 :
-            with open (nome_do_arquivo, 'r', encoding='utf8') as arquivo:
+            with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
+            indice = int(input('Digite o índice que deseja alterar: '))
+            nova_meta = input('Digite sua nova meta: ')
+            change_metas(indice, nova_meta)
+            clean_metas()
+            with open(nome_do_arquivo, 'w', encoding='utf-8') as arquivo:
+                for nome in list_metas:
+                    arquivo.write(f'{nome}\n')
+                list_metas.clear()
+        case 5 :
             os.system('cls')
-            template()
-            for nome in list_metas:
-                print(nome)
-            template()
+            with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
+                list_metas = [linha.strip() for linha in arquivo]
+                template()
+                for nome in list_metas:
+                    print(nome)
+                template()
         case 6 :
             os.system('cls')
             clean_metas(list_metas)
