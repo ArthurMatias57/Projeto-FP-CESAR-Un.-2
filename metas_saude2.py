@@ -81,20 +81,20 @@ while True:
             os.system('cls')
             with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
-                template()
-                for nome in list_metas:
-                    print(nome)
-                template()
+            template()
+            for nome in list_metas:
+                print(nome)
+            template()
         case 6 :
             os.system('cls')
-            clean_metas(list_metas)
+            clean_metas()
         case 7 :
             os.system('cls')
             break
         case _:
             os.system('cls')
-            ...
-    if escolha == '0':
+            print('Entrada inválida')
+    if escolha == False:
         break
     else:
         continue
