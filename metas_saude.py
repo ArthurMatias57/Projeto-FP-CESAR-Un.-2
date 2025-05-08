@@ -1,6 +1,7 @@
-import os; os.system('cls')
+import os; os.system('clear')
 
 list_metas = []
+aux_metas = []
 nome_do_arquivo = "Metas_de_saude.txt"
 
 def template():
@@ -30,32 +31,61 @@ def clean_metas():
 
 
 while True:
-    escolha = int(input('[1] Adicionar\n[2] Apagar\n[3] Marcar como feito\n[4] Alterar\n[5] Mostrar\n[6] Limpar\n[7] Sair\nVocê deseja: '))
+    
+    try:
+        escolha = int(input('[1] Adicionar\n[2] Apagar\n[3] Marcar como feito\n[4] Alterar\n[5] Mostrar\n[6] Limpar\n[7] Sair\nVocê deseja: '))
+
+    except ValueError:
+        print('O valor esperado são valores entre 1 e 7')
+        os.system('clear')
+        
 
     match escolha:
         case 1 :
-            os.system('cls')
-            nova_meta = input('Digite sua nova meta: ')
-            add_metas(list_metas, nova_meta)
-            print(list_metas)
-            with open (nome_do_arquivo, 'a') as arquivo:
-                for nome in list_metas:
-                    arquivo.write(f'{nome}\n')
-            list_metas.clear()
+            os.system('clear')
+            try:
+                nova_meta = input('Digite sua nova meta: ')
+                add_metas(list_metas, nova_meta)
+                print(list_metas)
+                with open (nome_do_arquivo, 'a') as arquivo:
+                    for nome in list_metas:
+                        arquivo.write(f'{nome}\n')
+                list_metas.clear()
+            except ValueError:
+                print('Valor incorreto, tente novamente.')
+            except FileNotFoundError:
+                print('Arquivo não foi encontrada.')
+            except Exception as e:
+                print('Ocorreu um erro inesperado.')
+
         case 2 :
-            os.system('cls')
-            with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
-                list_metas = [linha.strip() for linha in arquivo]
-            print(list_metas)
-            clean_metas()
-            indice = int(input('Digite o indice que deseja apagar: '))
-            pop_metas(indice,list_metas)
-            with open (nome_do_arquivo, 'w') as arquivo:
-                for nome in list_metas:
-                    arquivo.write(f'{nome}\n')
-            list_metas.clear()
+            os.system('clear')
+            try:
+                with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
+                    list_metas = [linha.strip() for linha in arquivo]
+                print(list_metas)
+                clean_metas()
+                indice = int(input('Digite o indice que deseja apagar: '))
+                pop_metas(indice,list_metas)
+                with open (nome_do_arquivo, 'w') as arquivo:
+                    for nome in list_metas:
+                        arquivo.write(f'{nome}\n')
+                        aux_metas.append(nome)
+                list_metas.clear()
+            except FileNotFoundError:
+                print('Pagina não encontrada.')
+                for nome in aux_metas:
+                    list_metas.append(nome)
+            except ValueError:
+                print('Você precisa colocar um valor inteiro')
+                for nome in aux_metas:
+                    list_metas.append(nome)
+            except IndexError:
+                print('Esse indice não existe.')
+                for nome in aux_metas:
+                    list_metas.append(nome)
         case 3 :
-            os.system('cls')
+            os.system('clear')
             with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
             indice = int(input('Digite o indice concluido: '))
@@ -66,7 +96,7 @@ while True:
                     arquivo.write(f'{nome}\n')
             list_metas.clear()
         case 4 :
-            os.system('cls')
+            os.system('clear')
             with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
             indice = int(input('Digite o índice que deseja alterar: '))
@@ -78,7 +108,7 @@ while True:
                     arquivo.write(f'{nome}\n')
                 list_metas.clear()
         case 5 :
-            os.system('cls')
+            os.system('clear')
             with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
                 list_metas = [linha.strip() for linha in arquivo]
             template()
@@ -86,14 +116,15 @@ while True:
                 print(nome)
             template()
         case 6 :
-            os.system('cls')
+            os.system('clear')
             clean_metas()
         case 7 :
-            os.system('cls')
+            os.system('clear')
             break
         case _:
-            os.system('cls')
-            print('Entrada inválida')
+            os.system('clear')
+            print('Entrada válidas: [1] até [8]')
+            continue
     if escolha == False:
         break
     else:
