@@ -29,7 +29,6 @@ def clean_metas():
         arquivo.write('')
     return
 
-
 while True:
     
     try:
@@ -84,36 +83,55 @@ while True:
                 print('Esse indice não existe.')
 
         case 3 :
-            os.system('clear')
-            with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
-                list_metas = [linha.strip() for linha in arquivo]
-            indice = int(input('Digite o indice concluido: '))
-            done_metas(indice)
-            clean_metas()
-            with open (nome_do_arquivo, 'w', encoding='utf-8') as arquivo:
-                for nome in list_metas:
-                    arquivo.write(f'{nome}\n')
-            list_metas.clear()
-        case 4 :
-            os.system('clear')
-            with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
-                list_metas = [linha.strip() for linha in arquivo]
-            indice = int(input('Digite o índice que deseja alterar: '))
-            nova_meta = input('Digite sua nova meta: ')
-            change_metas(indice, nova_meta)
-            clean_metas()
-            with open(nome_do_arquivo, 'w', encoding='utf-8') as arquivo:
-                for nome in list_metas:
-                    arquivo.write(f'{nome}\n')
+            try:
+                os.system('clear')
+                with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
+                    list_metas = [linha.strip() for linha in arquivo]
+                indice = int(input('Digite o indice concluido: '))
+                done_metas(indice)
+                clean_metas()
+                with open (nome_do_arquivo, 'w', encoding='utf-8') as arquivo:
+                    for nome in list_metas:
+                        arquivo.write(f'{nome}\n')
                 list_metas.clear()
+            except FileNotFoundError:
+                print('Pagina não encontrada.')
+            except ValueError:
+                print('Você precisa colocar um valor inteiro')
+            except IndexError:
+                print('Esse indice não existe.')
+                
+        case 4 :
+            try:
+                os.system('clear')
+                with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
+                    list_metas = [linha.strip() for linha in arquivo]
+                indice = int(input('Digite o índice que deseja alterar: '))
+                nova_meta = input('Digite sua nova meta: ')
+                change_metas(indice, nova_meta)
+                clean_metas()
+                with open(nome_do_arquivo, 'w', encoding='utf-8') as arquivo:
+                    for nome in list_metas:
+                        arquivo.write(f'{nome}\n')
+                    list_metas.clear()
+            except FileNotFoundError:
+                print('Pagina não encontrada.')
+            except ValueError:
+                print('Você precisa colocar um valor inteiro')
+            except IndexError:
+                print('Esse indice não existe.')
+
         case 5 :
-            os.system('clear')
-            with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
-                list_metas = [linha.strip() for linha in arquivo]
-            template()
-            for nome in list_metas:
-                print(nome)
-            template()
+            try:
+                os.system('clear')
+                with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
+                    list_metas = [linha.strip() for linha in arquivo]
+                template()
+                for nome in list_metas:
+                    print(nome)
+                template()
+            except FileNotFoundError:
+                print('Pagina não encontrada.')
         case 6 :
             os.system('clear')
             clean_metas()
