@@ -64,26 +64,25 @@ while True:
                 with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
                     list_metas = [linha.strip() for linha in arquivo]
                 print(list_metas)
-                clean_metas()
                 indice = int(input('Digite o indice que deseja apagar: '))
-                pop_metas(indice,list_metas)
-                with open (nome_do_arquivo, 'w') as arquivo:
-                    for nome in list_metas:
-                        arquivo.write(f'{nome}\n')
-                        aux_metas.append(nome)
-                list_metas.clear()
+                if indice in range(len(list_metas)):
+                    clean_metas()
+                    pop_metas(indice,list_metas)
+                    with open (nome_do_arquivo, 'w') as arquivo:
+                        for nome in list_metas:
+                            arquivo.write(f'{nome}\n')
+                            aux_metas.append(nome)
+                    list_metas.clear()
+                else:
+                    print('Não existe meta com esse índice!')
+                    continue
             except FileNotFoundError:
                 print('Pagina não encontrada.')
-                for nome in aux_metas:
-                    list_metas.append(nome)
             except ValueError:
                 print('Você precisa colocar um valor inteiro')
-                for nome in aux_metas:
-                    list_metas.append(nome)
             except IndexError:
                 print('Esse indice não existe.')
-                for nome in aux_metas:
-                    list_metas.append(nome)
+
         case 3 :
             os.system('clear')
             with open (nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
