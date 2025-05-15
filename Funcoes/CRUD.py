@@ -6,101 +6,103 @@ def lin():
 # Camila poderá adicionar, visualizar, editar e excluir registros dos seus pets,
 # com essas informações: nome, espécie, raça, data de nascimento e peso.
 
-# Solicita ao usuário que escolha uma das opções do menu do CRUD de pets, com uma mensagem respeitosa.
-lin()
-escolha = ""
-while escolha not in ['1', "cadastrar", "adicionar"]:
+# Define a função 'informacoes' que irá coletar os dados do novo pet.
+def informacoes(listaDePets):
 
-    escolha = input("Por gentileza, selecione a opção desejada no seu Gerenciador de Pets:\n" \
-                        "\n1 - Cadastrar um novo pet\n" \
-                        "2 - Visualizar pets cadastrados\n" \
-                        "3 - Atualizar informações de um pet\n" \
-                        "4 - Remover um pet da lista\n" \
-                        "\nQual foi a sua decisão: ").strip().lower()
-    lin()
+        # Solicita o nome do pet, remove espaços em branco e capitaliza a primeira letra.
+        name = input("Informe, por favor, o nome do seu pet: ").strip().capitalize()
+        lin()
 
-    # Cria uma lista vazia onde serão armazenados os pets cadastrados como dicionários.
-    list_pets = []
-
-    # Verifica se a opção escolhida foi "1 - Cadastrar um novo pet".
-
-    if escolha in ['1', "cadastrar", "adicionar"]: 
-        
-        # Define a função 'informacoes' que irá coletar os dados do novo pet.
-        def informacoes():
-
-            # Solicita o nome do pet, remove espaços em branco e capitaliza a primeira letra.
-            name = input("Informe, por favor, o nome do seu pet: ").strip().capitalize()
-            lin()
-
-            while not name.replace(" ", "").isalpha(): #Remove espaços TEMPORARIAMENTE (replace("", "")) para verificar se o nome contém apenas STRINGS(isalpha())
-                
-                print("Acho que você errou, o nome deve contar apenas letras.")
-                lin()
-                name = input("Informe, novamente, o nome do seu pet: ").strip().capitalize()
-                lin()
-
-            # Solicita a espécie do pet, trata o texto da mesma forma.
-            especie = input("Qual é a espécie do seu pet? ").strip().capitalize()
-            lin()
-
-            # Solicita a raça do pet.
-            raca = input("E qual é a raça? ").strip().capitalize()
-            lin()
-
-            # Solicita a data de nascimento do pet no formato DD/MM/AAAA.
-            date_nasc = input("Qual é a data de nascimento do seu pet? (DD/MM/AAAA): ").strip()
-            lin()
-
-            # Solicita o peso do pet, tratando espaços em branco.
-            peso = input("Gentilmente, informe o peso do seu pet (em kg): ").strip().replace(",", ".") #
-            lin()
-
-            # Enquanto o peso estiver vazio ou for menor/igual a zero, continua pedindo um valor válido.
-            while peso == "" or not peso.replace(".", "", 1) or float(peso) <= 0:              # peso.replace(".", "", 1) -> 
-                if peso == float(peso) <= 0:
-                    # Informa ao usuário que o valor está incorreto.
-                    print("Opa! Parece que houve um erro. O peso deve ser um número positivo.")
-                    lin()
-                elif peso == "":
-                    print("Você esqueceu do peso de seu pet. Tente novamente!")
-                    # Pede ao usuário que tente novamente.
-                    peso = input("Tente novamente, por favor: qual é o peso do seu pet (em kg)? ").strip()
+        while not name.replace(" ", "").isalpha(): #Remove espaços TEMPORARIAMENTE (replace("", "")) para verificar se o nome contém apenas STRINGS(isalpha())
             
-            peso = float(peso)
+            print("Acho que você errou, o nome deve contar apenas letras.")
+            lin()
+            name = input("Informe, novamente, o nome do seu pet: ").strip().capitalize()
             lin()
 
-            # Cria um dicionário com todas as informações do pet.
-            pets = {
-                "Nome: ": name,
-                "Espécie: ": especie,
-                "Raça: ": raca,
-                "Data de nascimento: ": date_nasc,
-                "Peso: ": peso
-            }
+        # Solicita a espécie do pet, trata o texto da mesma forma.
+        especie = input("Qual é a espécie do seu pet? ").strip().capitalize()
+        lin()
 
-            # Adiciona o dicionário do pet à lista de pets.
-            list_pets.append(pets)
+        # Solicita a raça do pet.
+        raca = input("E qual é a raça? ").strip().capitalize()
+        lin()
 
-            # Informa ao usuário que o cadastro foi realizado com sucesso.
-            print("Muito bem! O cadastro do seu pet foi realizado com sucesso.")
-            lin()
+        # Solicita a data de nascimento do pet no formato DD/MM/AAAA.
+        date_nasc = input("Qual é a data de nascimento do seu pet? (DD/MM/AAAA): ").strip()
+        lin()
 
-        # Chama a função informacoes para executar o processo de cadastro.
-        informacoes()
+        # Solicita o peso do pet, tratando espaços em branco.
+        peso = input("Gentilmente, informe o peso do seu pet (em kg): ").strip().replace(",", ".") #
+        lin()
 
-    elif escolha == "":
-        print("Eita! Você esqueceu de escolher a sua opção. Tente novamente!")
+        # Enquanto o peso estiver vazio ou for menor/igual a zero, continua pedindo um valor válido.
+        while peso == "" or not peso.replace(".", "", 1) or float(peso) <= 0:              # peso.replace(".", "", 1) -> 
+            if peso == float(peso) <= 0:
+                # Informa ao usuário que o valor está incorreto.
+                print("Opa! Parece que houve um erro. O peso deve ser um número positivo.")
+                lin()
+            elif peso == "":
+                print("Você esqueceu do peso de seu pet. Tente novamente!")
+                # Pede ao usuário que tente novamente.
+                peso = input("Tente novamente, por favor: qual é o peso do seu pet (em kg)? ").strip()
+        
+        peso = float(peso)
+        lin()
 
-    else:
-        print("Ops, tente novamente, escolha uma opção disponível!")
+        # Cria um dicionário com todas as informações do pet.
+        pets = {
+            "Nome: ": name,
+            "Espécie: ": especie,
+            "Raça: ": raca,
+            "Data de nascimento: ": date_nasc,
+            "Peso: ": peso
+        }
 
-if escolha == 2:
+        # Adiciona o dicionário do pet à lista de pets.
+        listaDePets.append(pets)
 
-    def read():
-        for i in list_pets:
-            print(i)
-    read()
+        # Informa ao usuário que o cadastro foi realizado com sucesso.
+        print("Muito bem! O cadastro do seu pet foi realizado com sucesso.")
+        lin()
+
+
+def CRUD():
+    # Solicita ao usuário que escolha uma das opções do menu do CRUD de pets, com uma mensagem respeitosa.
+    lin()
+    escolha = ""
+    while escolha not in ['1', "cadastrar", "adicionar"]:
+
+        escolha = input("Por gentileza, selecione a opção desejada no seu Gerenciador de Pets:\n" \
+                            "\n1 - Cadastrar um novo pet\n" \
+                            "2 - Visualizar pets cadastrados\n" \
+                            "3 - Atualizar informações de um pet\n" \
+                            "4 - Remover um pet da lista\n" \
+                            "\nQual foi a sua decisão: ").strip().lower()
+        lin()
+
+        # Cria uma lista vazia onde serão armazenados os pets cadastrados como dicionários.
+        list_pets = []
+
+        # Verifica se a opção escolhida foi "1 - Cadastrar um novo pet".
+
+        if escolha in ['1', "cadastrar", "adicionar"]: 
+            # Chama a função informacoes para executar o processo de cadastro.
+            informacoes(list_pets)
+
+        elif escolha == "":
+            print("Eita! Você esqueceu de escolher a sua opção. Tente novamente!")
+
+        else:
+            print("Ops, tente novamente, escolha uma opção disponível!")
+
+    if escolha == 2:
+
+        def read():
+            for i in list_pets:
+                print(i)
+        read()
+CRUD()
 
 # 2. Cadastro de Cuidados e Eventos:
 # O sistema permitirá o registro de eventos importantes, sendo eles: vacinações,
