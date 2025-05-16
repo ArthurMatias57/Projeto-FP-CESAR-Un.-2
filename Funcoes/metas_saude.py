@@ -1,3 +1,4 @@
+from BD import Metas_de_saude
 import os; 
 #os.system('clear')
 
