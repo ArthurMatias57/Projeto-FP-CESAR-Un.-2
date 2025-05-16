@@ -1,4 +1,4 @@
-from BD import Metas_de_saude
+from src.BD import Metas_de_saude
 import os; 
 #os.system('clear')
 
