@@ -1,236 +1,307 @@
-# Função para imprimir uma linha separadora
+from BD import pets
+
 def lin():
     print("-" * 60)
 
-# 1. CRUD de Animais de Estimação:
-# Camila poderá adicionar, visualizar, editar e excluir registros dos seus pets,
-# com essas informações: nome, espécie, raça, data de nascimento e peso.
 
-# Define a função 'informacoes' que irá coletar os dados do novo pet.
-def informacoes(listaDePets):
+list_pets = []
 
-        # Solicita o nome do pet, remove espaços em branco e capitaliza a primeira letra.
-        name = input("Informe, por favor, o nome do seu pet: ").strip().capitalize()
+def salvar_pets():
+    with open("pets.txt", "a", encoding="utf-8") as file:
+        for pet in list_pets:
+            for k, v in pet.items():
+                file.write(f"{k}: {v}\n")
+            file.write("-" * 40 + "\n")  
+    print("Dados salvos no arquivo com sucesso!")
+    lin()
+
+def carregar_pets():
+    try:
+        with open("pets.txt", "r", encoding="utf-8") as file:
+            pet = {}
+            for line in file:
+                line = line.strip()
+                if line == "-" * 40:
+                    if pet:
+                        list_pets.append(pet)
+                        pet = {}
+                elif ":" in line:
+                    key, value = line.split(":", 1)
+                    key = key.strip()
+                    value = value.strip()
+                    if key.lower() == "peso":
+                        try:
+                            value = float(value.replace(",", "."))
+                        except ValueError:
+                            value = 0.0
+                    pet[key] = value
+            if pet:
+                list_pets.append(pet)
+    except FileNotFoundError:
+        print("Nenhum arquivo encontrado. Começando com uma lista vazia.")
+        lin()
+    except Exception as error:
+        print(f"Erro ao carregar os pets: {error}")
         lin()
 
-        while not name.replace(" ", "").isalpha(): #Remove espaços TEMPORARIAMENTE (replace("", "")) para verificar se o nome contém apenas STRINGS(isalpha())
-            
-            print("Acho que você errou, o nome deve contar apenas letras.")
+def inicio():
+    while True:
+        lin()
+        final = input("O que você deseja fazer agora?\n"
+                      "1 - Voltar ao menu principal\n"
+                      "2 - Sair\n"
+                      "\nEscolha: ").strip().lower()
+        lin()
+
+        if final in ["1", "voltar", "inicio", "menu"]:
+            return
+        elif final in ["2", "fechar", "sair"]:
+            print("Obrigado por usar o Gerenciador de Pets! Até mais.")
+            exit()
+        else:
+            print("Opção inválida. Tente novamente.")
+
+def informacoes():
+    while True:
+        try:
+            name = input("Informe, por favor, o nome do seu pet: ").strip().capitalize()
+            if not name.replace(" ", "").isalpha():
+                raise ValueError("O nome deve conter apenas letras.")
             lin()
-            name = input("Informe, novamente, o nome do seu pet: ").strip().capitalize()
+            break
+        except ValueError as error:
+            print(f"Acho que você errou: {error}")
             lin()
 
-        # Solicita a espécie do pet, trata o texto da mesma forma.
-        especie = input("Qual é a espécie do seu pet? ").strip().capitalize()
-        lin()
+    while True:
+        try:
+            species = input("Qual é a espécie do seu pet? ").strip().capitalize()
+            if not species.replace(" ", "").isalpha():
+                raise ValueError("A espécie deve conter apenas letras.")
+            lin()
+            break
+        except ValueError as error:
+            print(f"Opa! Parece que houve um erro: {error}")
+            lin()
 
-        # Solicita a raça do pet.
-        raca = input("E qual é a raça? ").strip().capitalize()
-        lin()
+    while True:
+        try:
+            race = input("E qual é a raça do seu pet? ").strip().capitalize()
+            if not race.replace(" ", "").isalpha():
+                raise ValueError("A raça deve conter apenas letras.")
+            lin()
+            break
+        except ValueError as error:
+            print(f"Acho que você se enganou: {error}")
+            lin()
 
-        # Solicita a data de nascimento do pet no formato DD/MM/AAAA.
-        date_nasc = input("Qual é a data de nascimento do seu pet? (DD/MM/AAAA): ").strip()
-        lin()
+    print("\nInforme a data de nascimento do seu pet:\n")
 
-        # Solicita o peso do pet, tratando espaços em branco.
-        peso = input("Gentilmente, informe o peso do seu pet (em kg): ").strip().replace(",", ".") #
-        lin()
+    while True:
+        try:
+            day = int(input("Digite o dia de nascimento (1-31): "))
+            if day < 1 or day > 31:
+                raise ValueError("O dia deve estar entre 1 e 31.")
+            lin()
+            break
+        except ValueError:
+            print("Erro: Insira um número válido para o dia.")
+            lin()
 
-        # Enquanto o peso estiver vazio ou for menor/igual a zero, continua pedindo um valor válido.
-        while peso == "" or not peso.replace(".", "", 1) or float(peso) <= 0:              # peso.replace(".", "", 1) -> 
-            if peso == float(peso) <= 0:
-                # Informa ao usuário que o valor está incorreto.
-                print("Opa! Parece que houve um erro. O peso deve ser um número positivo.")
+    mounths = {
+        "janeiro": ["janeiro", "01", "1"], "fevereiro": ["fevereiro", "02", "2"], "março": ["março", "marco", "03", "3"],
+        "abril": ["abril", "04", "4"], "maio": ["maio", "05", "5"], "junho": ["junho", "06", "6"], "julho": ["julho", "07", "7"],
+        "agosto": ["agosto", "08", "8"], "setembro": ["setembro", "09", "9"], "outubro": ["outubro", "10"],
+        "novembro": ["novembro", "11"], "dezembro": ["dezembro", "12"]
+    }
+
+    while True:
+        mounth = input("Digite o mês de nascimento (nome ou número): ").strip().lower()
+        found = False
+        for key, value in mounths.items():
+            if mounth in value:
+                mounth = value[1]
+                found = True
+                break
+        if found:
+            lin()
+            break
+        else:
+            print("Erro: Mês inválido.")
+            lin()
+
+    while True:
+        try:
+            year = int(input("Digite o ano de nascimento (ex: 2020): "))
+            if year < 1900 or year > 2025:
+                raise ValueError("Ano inválido!")
+            lin()
+            break
+        except ValueError:
+            print("Erro: Insira um número válido para o ano.")
+            lin()
+
+    date_birth = f"{day}/{mounth}/{year}"
+
+    while True:
+        try:
+            weight = float(input("Informe o peso do seu pet (em kg): ").strip().replace(",", "."))
+            if weight <= 0:
+                raise ValueError("Peso inválido.")
+            lin()
+            break
+        except ValueError as error:
+            print(f"Opa! Parece que houve um erro: {error}")
+            lin()
+
+    pet = {
+        "Nome": name,
+        "Espécie": species,
+        "Raça": race,
+        "Data de Nascimento": date_birth,
+        "Peso": weight
+    }
+
+    list_pets.append(pet)
+    salvar_pets()
+    print("Cadastro realizado com sucesso!")
+    lin()
+    inicio()
+
+def read():
+    if list_pets:
+        print("\nA lista de pets cadastrados:\n")
+        lin()
+        for ordem, pet in enumerate(list_pets, 1):
+            print(f"Pet {ordem}:")
+            lin()
+            for key, value in pet.items():
+                print(f"{key}: {value}")
+            lin()
+    else:
+        print("Ainda não foi cadastrado nenhum pet.")
+    lin()
+    inicio()
+
+def edit():
+    if list_pets:
+        for ordem, pet in enumerate(list_pets):
+            print(f"Pet {ordem + 1} - {pet['Nome']}")
+            lin()
+
+        while True:
+            try:
+                number = int(input("\nDigite o número do pet que deseja alterar: ")) - 1
+                if number < 0 or number >= len(list_pets):
+                    raise IndexError("Número fora da lista.")
                 lin()
-            elif peso == "":
-                print("Você esqueceu do peso de seu pet. Tente novamente!")
-                # Pede ao usuário que tente novamente.
-                peso = input("Tente novamente, por favor: qual é o peso do seu pet (em kg)? ").strip()
-        
-        peso = float(peso)
+                break
+            except ValueError:
+                print("Erro: Insira um número válido.")
+                lin()
+            except IndexError as error:
+                print(f"Tente novamente! {error}")
+                lin()
+
+        while True:
+            item = input("\nQual item deseja editar?\n"
+                         "1 - Nome\n"
+                         "2 - Espécie\n"
+                         "3 - Raça\n"
+                         "4 - Peso\n"
+                         "\nSua escolha: ").strip().lower()
+            lin()
+
+            if item in ['1', "nome"]:
+                list_pets[number]["Nome"] = input("Digite o novo nome do seu pet: ").strip().title()
+                break
+            elif item in ['2', "espécie", "especie"]:
+                list_pets[number]["Espécie"] = input("Digite a nova espécie: ").strip().capitalize()
+                break
+            elif item in ['3', "raça", "raca"]:
+                list_pets[number]["Raça"] = input("Digite a nova raça: ").strip().capitalize()
+                break
+            elif item in ['4', "peso", "massa"]:
+                while True:
+                    try:
+                        novo_peso = float(input("Digite o novo peso: ").replace(",", ".").strip())
+                        if novo_peso <= 0:
+                            raise ValueError("Peso deve ser um número positivo.")
+                        list_pets[number]["Peso"] = novo_peso
+                        break
+                    except ValueError as error:
+                        print(f"Tente novamente! {error}")
+                        lin()
+            else:
+                print("Opção inválida!")
+                lin()
+                continue
+
+        salvar_pets()
+        print("Alteração realizada com sucesso!")
+        lin()
+    else:
+        print("Nenhum pet cadastrado.")
         lin()
 
-        # Cria um dicionário com todas as informações do pet.
-        pets = {
-            "Nome: ": name,
-            "Espécie: ": especie,
-            "Raça: ": raca,
-            "Data de nascimento: ": date_nasc,
-            "Peso: ": peso
-        }
+    inicio()
 
-        # Adiciona o dicionário do pet à lista de pets.
-        listaDePets.append(pets)
+def remove():
+    if list_pets:
+        for ordem, pet in enumerate(list_pets):
+            print(f"Pet {ordem + 1} - {pet['Nome']}")
+            lin()
 
-        # Informa ao usuário que o cadastro foi realizado com sucesso.
-        print("Muito bem! O cadastro do seu pet foi realizado com sucesso.")
+        while True:
+            try:
+                number = int(input("\nDigite o número do pet que deseja remover: ")) - 1
+                if number < 0 or number >= len(list_pets):
+                    raise IndexError("Número fora da lista.")
+                lin()
+                break
+            except ValueError:
+                print("Erro: Insira um número válido.")
+                lin()
+            except IndexError as error:
+                print(f"Tente novamente! {error}")
+                lin()
+
+        list_pets.pop(number)
+        salvar_pets()
+        print("Pet removido com sucesso!")
+        lin()
+    else:
+        print("Nenhum pet cadastrado.")
         lin()
 
+    inicio()
+
+carregar_pets()
 
 def CRUD():
-    # Solicita ao usuário que escolha uma das opções do menu do CRUD de pets, com uma mensagem respeitosa.
-    lin()
-    escolha = ""
-    while escolha not in ['1', "cadastrar", "adicionar"]:
-
-        escolha = input("Por gentileza, selecione a opção desejada no seu Gerenciador de Pets:\n" \
-                            "\n1 - Cadastrar um novo pet\n" \
-                            "2 - Visualizar pets cadastrados\n" \
-                            "3 - Atualizar informações de um pet\n" \
-                            "4 - Remover um pet da lista\n" \
-                            "\nQual foi a sua decisão: ").strip().lower()
+    while True:
+        lin()
+        escolha = input("Selecione uma opção:\n"
+                        "\n1 - Cadastrar pet\n"
+                        "2 - Visualizar pets cadastrados\n"
+                        "3 - Editar pet\n"
+                        "4 - Remover pet\n"
+                        "5 - Sair\n"
+                        "\nQual a sua decisão: ").strip().lower()
         lin()
 
-        # Cria uma lista vazia onde serão armazenados os pets cadastrados como dicionários.
-        list_pets = []
-
-        # Verifica se a opção escolhida foi "1 - Cadastrar um novo pet".
-
-        if escolha in ['1', "cadastrar", "adicionar"]: 
-            # Chama a função informacoes para executar o processo de cadastro.
-            informacoes(list_pets)
-
-        elif escolha == "":
-            print("Eita! Você esqueceu de escolher a sua opção. Tente novamente!")
-
+        if escolha in ['1', "cadastrar", "adicionar"]:
+            informacoes()
+        elif escolha in ['2', "visualizar", "lista", "ler"]:
+            read()
+        elif escolha in ['3', "editar", "alterar", "mudar"]:
+            edit()
+        elif escolha in ['4', "remover", "excluir", "deletar"]:
+            remove()
+        elif escolha in ['5', "sair", "exit", "fechar"]:
+            print("Obrigado por usar o Gerenciador de Pets! Até mais.")
+            break
         else:
-            print("Ops, tente novamente, escolha uma opção disponível!")
-
-    if escolha == 2:
-
-        def read():
-            for i in list_pets:
-                print(i)
-        read()
-CRUD()
-
-# 2. Cadastro de Cuidados e Eventos:
-# O sistema permitirá o registro de eventos importantes, sendo eles: vacinações,
-# consultas veterinárias e aplicação de remédios. Para cada evento deve ser
-# registrado datas, o nome do pet e observações.
-
-# Define a função eventos() que será responsável por registrar eventos relacionados ao PET.
-def eventos():
-    
-    # Chama a função lin(), provavelmente usada para imprimir uma linha separadora (por exemplo, '------').
-    lin()
-    
-    # Solicita ao usuário que escolha o tipo de evento a ser registrado e converte a resposta para inteiro.
-    opcao = int(input("Por favor, escolha o tipo de evento que você deseja registrar:\n"
-                      "1 - Vacinação\n"
-                      "2 - Consultas Veterinárias\n"
-                      "3 - Aplicação de remédios\n"))
-    
-    # Chama novamente a função lin() para separar visualmente a próxima parte do código.
-    lin()
-    
-    # Verifica se a opção digitada não está entre as válidas (1, 2 ou 3).
-    if opcao not in [1, 2, 3]:
-        # Informa que a opção escolhida é inválida.
-        print("Desculpe, essa opção não é válida. Por favor, escolha entre as opções disponíveis!")
-        lin()
-        # Encerra a função sem executar o restante do código.
-        return
-    
-    # Se a opção escolhida foi 1 (Vacinação):
-    if opcao == 1:
-        # Inicializa contador de vacinações.
-        cont_vac = 0
-        # Cria uma lista para armazenar datas de vacinações registradas.
-        list_date_vac = []
-
-        # Pergunta ao usuário se o pet recebeu vacinação recentemente.
-        vac = input("Seu PET recebeu alguma vacinação recentemente? Responda com 'Sim' ou 'Não': ").strip().lower()
-        lin()
-        
-        # Se a resposta for "sim", registra a vacinação.
-        if vac == "sim":
-            # Incrementa o contador de vacinações.
-            cont_vac += 1
-            # Solicita a data da última vacinação.
-            date_vac = input("Qual foi a data da última vacinação do seu PET? Por favor, insira a data no formato DD/MM/AAAA: ").strip()
+            print("Opção inválida! Escolha um número correto.")
             lin()
             
-            # Verifica se a data ainda não está na lista de vacinações.
-            if date_vac not in list_date_vac:
-                # Adiciona a nova data à lista.
-                list_date_vac.append(date_vac)
-                # Confirma o registro do evento.
-                print("Muito obrigado! O evento de vacinação foi registrado com sucesso.")
-                lin()
-            else:
-                # Informa que a data já está cadastrada.
-                print("A data informada já está registrada. Não é necessário adicionar novamente.")
-                lin()
-    
-    # Se a opção escolhida foi 2 (Consulta veterinária):
-    elif opcao == 2:
-        # Inicializa contador de consultas.
-        cont_cons_vet = 0
-        # Cria lista para armazenar datas de consultas veterinárias.
-        list_date_cons_vet = []
-
-        # Pergunta ao usuário se houve consulta recentemente.
-        cons_vet = input("Seu PET teve consulta veterinária recentemente? Responda com 'Sim' ou 'Não': ").strip().lower()
-        lin()
-        
-        # Se a resposta for "sim", registra a consulta.
-        if cons_vet == "sim":
-            # Incrementa o contador.
-            cont_cons_vet += 1
-            # Solicita a data da consulta.
-            date_cons = input("Por favor, informe a data da última consulta veterinária do seu PET no formato DD/MM/AAAA: ").strip()
-            lin()
-            
-            # Verifica se a data ainda não foi registrada.
-            if date_cons not in list_date_cons_vet:
-                # Adiciona a data à lista.
-                list_date_cons_vet.append(date_cons)
-                # Confirma o registro.
-                print("Muito obrigado! O evento de consulta foi registrado com sucesso.")
-                lin()
-            else:
-                # Informa que a data já está cadastrada.
-                print("A data informada já está registrada. Não é necessário adicionar novamente.")
-                lin()
-    
-    # Se a opção escolhida foi 3 (Aplicação de remédio):
-    elif opcao == 3:
-        # Inicializa contador de medicações.
-        cont_rem = 0
-        # Lista para nomes dos remédios registrados.
-        list_rem = []
-        # Lista para datas em que o remédio foi administrado.
-        list_date_rem = []
-
-        # Pergunta ao usuário se o pet precisou de medicação.
-        rem = input("O seu PET precisou de alguma medicação recentemente? Responda com 'Sim' ou 'Não': ").strip().lower()
-        lin()
-        
-        # Se sim, registra o evento.
-        if rem == "sim":
-            # Incrementa o contador.
-            cont_rem += 1
-            # Pede o nome do remédio.
-            esp_rem = input("Por favor, informe o nome da medicação administrada ao seu PET: ").strip()
-            lin()
-            
-            # Se o nome do remédio ainda não estiver na lista, adiciona.
-            if esp_rem not in list_rem:
-                list_rem.append(esp_rem)
-            
-            # Solicita a data da administração do remédio.
-            date_rem = input("Qual foi a data da administração dessa medicação? Por favor, insira no formato DD/MM/AAAA: ").strip()
-            lin()
-            
-            # Verifica se a data ainda não foi registrada.
-            if date_rem not in list_date_rem:
-                # Adiciona à lista.
-                list_date_rem.append(date_rem)
-                # Confirma o registro.
-                print("Muito obrigado! O evento de aplicação de medicação foi registrado com sucesso.")
-                lin()
-            else:
-                # Informa que a data já está cadastrada.
-                print("A data informada já está registrada. Não é necessário adicionar novamente.")
-                lin()
