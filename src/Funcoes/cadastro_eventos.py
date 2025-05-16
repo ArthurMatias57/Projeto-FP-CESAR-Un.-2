@@ -5,7 +5,7 @@ def separar():
 # Lista para armazenar os eventos
 eventos_pet = []
 
-# Função para registrar eventos 
+#Função para registrar eventos 
 def registrar_evento():
     separar()
     print("Vamos registrar um novo evento para o seu PET!")
@@ -50,14 +50,11 @@ def registrar_evento():
     eventos_pet.append(evento)
     print("Evento registrado com sucesso!")
     separar()
-
-registrar_evento()
-
-# Exibir os eventos registrados 
-print("Eventos registrados:")
-for evento in eventos_pet:
-    print(f"Nome do pet: {evento['Nome do pet']}")
-    print(f"Tipo do evento: {evento['Tipo do evento']}")
-    print(f"Data: {evento['Data']}")
-    print(f"Observações: {evento['Observações']}")
-    separar()
+    
+    print("Eventos registrados:")
+    for evento in eventos_pet:
+        print(f"Nome do pet: {evento['Nome do pet']}")
+        print(f"Tipo do evento: {evento['Tipo do evento']}")
+        print(f"Data: {evento['Data']}")
+        print(f"Observações: {evento['Observações']}")
+        separar()

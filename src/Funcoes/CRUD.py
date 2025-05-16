@@ -1,12 +1,15 @@
-from src.BD import pets
+import os
+from Inicio import inicio
+
+CAMINHO_PETS = os.path.join(os.path.dirname(__file__), "..", "BD", "pets.txt")
+
+list_pets = []
 
 def lin():
     print("-" * 60)
 
-list_pets = []
-
 def salvar_pets():
-    with open("pets.txt", "a", encoding="utf-8") as file:
+    with open(CAMINHO_PETS, "w", encoding="utf-8") as file:
         for pet in list_pets:
             for k, v in pet.items():
                 file.write(f"{k}: {v}\n")
@@ -16,7 +19,7 @@ def salvar_pets():
 
 def carregar_pets():
     try:
-        with open("pets.txt", "r", encoding="utf-8") as file:
+        with open(CAMINHO_PETS, "r", encoding="utf-8") as file:
             pet = {}
             for line in file:
                 line = line.strip()
@@ -39,11 +42,8 @@ def carregar_pets():
     except FileNotFoundError:
         print("Nenhum arquivo encontrado. Começando com uma lista vazia.")
         lin()
-    except Exception as error:
-        print(f"Erro ao carregar os pets: {error}")
-        lin()
 
-def inicio():
+def menuSairOuReinicio():
     while True:
         lin()
         final = input("O que você deseja fazer agora?\n"
@@ -55,7 +55,8 @@ def inicio():
         if final in ["1", "voltar", "inicio", "menu"]:
             return
         elif final in ["2", "fechar", "sair"]:
-            print("Obrigado por usar o Gerenciador de Pets! Até mais.")
+            print("Voltando ao menu principal")
+            inicio()
             exit()
         else:
             print("Opção inválida. Tente novamente.")
@@ -165,7 +166,7 @@ def informacoes():
     salvar_pets()
     print("Cadastro realizado com sucesso!")
     lin()
-    inicio()
+    menuSairOuReinicio()
 
 def read():
     if list_pets:
@@ -180,7 +181,7 @@ def read():
     else:
         print("Ainda não foi cadastrado nenhum pet.")
     lin()
-    inicio()
+    menuSairOuReinicio()
 
 def edit():
     if list_pets:
@@ -243,7 +244,7 @@ def edit():
         print("Nenhum pet cadastrado.")
         lin()
 
-    inicio()
+    menuSairOuReinicio()
 
 def remove():
     if list_pets:
@@ -273,7 +274,7 @@ def remove():
         print("Nenhum pet cadastrado.")
         lin()
 
-    inicio()
+    menuSairOuReinicio()
 
 carregar_pets()
 
