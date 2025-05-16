@@ -1,8 +1,7 @@
-from BD import pets
+from src.BD import pets
 
 def lin():
     print("-" * 60)
-
 
 list_pets = []
 
@@ -304,4 +303,4 @@ def CRUD():
         else:
             print("Opção inválida! Escolha um número correto.")
             lin()
-            
+CRUD()
