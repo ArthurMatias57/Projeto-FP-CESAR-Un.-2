@@ -2,6 +2,28 @@ import os
 os.system("cls")
 import random 
 
+
+"""
+def menuSairOuReinicio():
+    while True:
+        final = input("O que você deseja fazer agora?\n"
+                      "1 - \n"
+                      "2 - Voltar ao menu principal\n"
+                      "\nEscolha: ").strip().lower()
+        lin()
+
+        if final == 1:
+            # Deve retornar a funcionalidade
+            Ex: CRUD()
+        elif final == 2 :
+            print("Voltando ao menu principal")
+            inicio()
+            exit()
+        else:
+            print("Opção inválida. Tente novamente.")
+
+"""
+
 # Sugestões Personalizadas de brinquedos ideais, alimentos recomendados e exercíios adequados ----> Baseado em: Peso,Idade e Espécie
 # random.choice(lista) -----> escolhe um elemento aleatório de uma lista]
 def sugestoesPersonalizadas():
