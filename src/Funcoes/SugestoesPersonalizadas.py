@@ -1,7 +1,12 @@
 
 import os
+import sys
+
 os.system("cls")
 import random 
+
+sys.path.append("Projeto-FP-CESAR-Un.-2\src\FuncoesGlobais.py") 
+from FuncoesGlobais import *
 
 # Sugestões Personalizadas de brinquedos ideais, alimentos recomendados e exercíios adequados ----> Baseado em: Peso,Idade e Espécie
 # random.choice(lista) -----> escolhe um elemento aleatório de uma lista]
