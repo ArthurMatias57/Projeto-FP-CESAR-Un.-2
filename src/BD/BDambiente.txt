@@ -1,0 +1,14 @@
+# Formato: Raça|Grupo|Espécie|Nome Popular|Características|Recomendação Genérica|Recomendação Específica
+----------------------------------------
+Nome: Gadr
+Espécie: Gaergr
+Raça: Asrg
+Data de Nascimento: 10/05/2022
+Peso: 30.0
+----------------------------------------
+Nome: Godofredo
+Espécie: Husky siberiano
+Raça: Cachorro
+Data de Nascimento: 3/07/2014
+Peso: 30.0
+----------------------------------------

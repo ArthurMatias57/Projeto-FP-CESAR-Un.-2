@@ -1,7 +1,9 @@
 import os
-from Inicio import inicio
+import sys
 
-CAMINHO_PETS = os.path.join(os.path.dirname(__file__), "..", "BD", "pets.txt")
+CAMINHO_PETS = os.path.join("Projeto-FP-CESAR-Un.-2\src\BD\BDambiente.txt")
+sys.path.append("Projeto-FP-CESAR-Un.-2")
+from Inicio import inicio
 
 list_pets = []
 
@@ -304,4 +306,4 @@ def CRUD():
         else:
             print("Opção inválida! Escolha um número correto.")
             lin()
-CRUD()
+#CRUD()

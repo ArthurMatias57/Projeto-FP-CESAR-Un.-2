@@ -88,5 +88,5 @@ def sugestoesPersonalizadas():
                 os.system("cls")
                 print("Digite um valor numérico!")
                 continue
-sugestoesPersonalizadas()
+#sugestoesPersonalizadas()
 

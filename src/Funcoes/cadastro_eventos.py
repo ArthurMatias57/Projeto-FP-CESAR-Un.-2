@@ -86,5 +86,5 @@ def registrar_evento():
             continue
 
     print("Retornando ao menu principal...")
-    CRUD()  
+    inicio()  
 

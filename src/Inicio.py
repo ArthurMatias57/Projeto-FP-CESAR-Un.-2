@@ -1,6 +1,6 @@
 import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "Funcoes"))
+
+sys.path.append("Projeto-FP-CESAR-Un.-2\src\Funcoes")
 
 from Funcoes.cadastro_eventos import registrar_evento
 from Funcoes.metas_saude import metasDeSaude
