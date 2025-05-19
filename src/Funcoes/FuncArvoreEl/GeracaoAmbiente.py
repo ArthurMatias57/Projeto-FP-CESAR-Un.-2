@@ -1,5 +1,7 @@
 import os
 
+
+
 CAMINHO_AMBIENTE = os.path.join("Projeto-FP-CESAR-Un.-2\src\BD\BDambiente.txt")
 
 

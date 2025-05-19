@@ -27,7 +27,7 @@ def titulo_ascii_vida_pet():
 
 def inicio():
     try:
-        selecao = int(input("Selecione uma das opções: \n1- CRUD\n2- Metas de saúde\n3- Sugestões personalizadas\n4- Cadastro de eventos\nR:"))
+        selecao = int(input("Bem vindo !!\nSelecione uma das opções: \n1- CRUD\n2- Metas de saúde\n3- Sugestões personalizadas\n4- Cadastro de eventos\nR:"))
         
         match selecao:
             case 1:
