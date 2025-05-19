@@ -59,7 +59,6 @@ while True:
         opcao = int(input("BEM VINDO AO PETSCHOOL, O QUE DESEJA?\n[5] - Sugestões Personalizadas\n"))
     except ValueError:
         os.system("cls")
-        print("Digito inválido!")
         continue
 
     match opcao:
