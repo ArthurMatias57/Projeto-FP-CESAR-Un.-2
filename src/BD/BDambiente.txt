@@ -1,14 +1,51 @@
 # Formato: Raça|Grupo|Espécie|Nome Popular|Características|Recomendação Genérica|Recomendação Específica
-----------------------------------------
-Nome: Gadr
-Espécie: Gaergr
-Raça: Asrg
-Data de Nascimento: 10/05/2022
-Peso: 30.0
-----------------------------------------
-Nome: Godofredo
-Espécie: Husky siberiano
-Raça: Cachorro
-Data de Nascimento: 3/07/2014
-Peso: 30.0
-----------------------------------------
+
+#Cachorro
+
+Cachorro|Retrievers|Golden Retriever|Golden Retriever|ativo, sociável, grande porte|Necessita de espaço para atividades físicas e interação social.|Ambiente com quintal amplo e brinquedos interativos.
+Cachorro|Retrievers|Labrador Retriever|Labrador Retriever|amigável, energético, médio porte|Ambiente com espaço para exercícios e interação com a família.|Quintal cercado e acesso a brinquedos que estimulem a mente.
+Cachorro|Terriers|Beagle|Beagle|curioso, independente, pequeno porte|Necessita de atividades que estimulem o olfato e a mente.|Ambiente com brinquedos interativos e passeios frequentes.
+Cachorro|Boxers|Boxer|Boxer|protetor, brincalhão, médio porte|Ambiente com espaço para brincadeiras e interação com crianças.|Quintal seguro e atividades que canalizem sua energia.
+Cachorro|Setters|Setter Irlandês|Setter Irlandês|ativo, sociável, grande porte|Necessita de espaço para correr e atividades ao ar livre.|Ambiente com acesso a áreas abertas e exercícios regulares.
+
+#Gato
+
+Gato|Felinos de pelo curto|Siamês|Siamês|vocal, carinhoso, esguio|Ambiente tranquilo com locais elevados para descanso.|Espaço com arranhadores e prateleiras para escalada.
+Gato|Felinos de pelo longo|Persa|Persa|calmo, dócil, pelagem longa|Ambiente silencioso com locais confortáveis para repouso.|Espaço com almofadas e cuidados regulares com a pelagem.
+Gato|Felinos de grande porte|Maine Coon|Maine Coon|amigável, brincalhão, grande porte|Ambiente espaçoso com oportunidades para escalada.|Áreas com estruturas verticais e brinquedos interativos.
+Gato|Felinos exóticos|Bengal|Bengal|ativo, curioso, pelagem exótica|Ambiente enriquecido com estímulos visuais e físicos.|Espaço com brinquedos que simulem caça e áreas para escalar.
+Gato|Felinos sem pelo|Sphynx|Sphynx|afetuoso, curioso, sem pelo|Ambiente aquecido com locais macios para descanso.|Espaço com cobertores e proteção contra correntes de ar.
+
+#Lagarto
+
+Lagarto|Agamidae|Pogona vitticeps|Dragão-barbudo|diurno, sociável, aprecia calor|Terrário com iluminação UVB e áreas para escalada.|Inclua esconderijos e mantenha temperatura entre 35-40°C.
+Lagarto|Iguanidae|Iguana iguana|Iguana-verde|herbívoro, grande porte, aprecia umidade|Terrário espaçoso com alta umidade e vegetação.|Ambiente com plantas naturais e acesso à luz solar indireta.
+Lagarto|Eublepharidae|Eublepharis macularius|Gecko-leopardo|noturno, pequeno porte, fácil de cuidar|Terrário com esconderijos e substrato adequado.|Ambiente com temperatura controlada e alimentação à base de insetos.
+Lagarto|Scincidae|Tiliqua scincoides|Lagarto-de-língua-azul|diurno, dócil, escamas lisas|Terrário com áreas para se esconder e iluminação adequada.|Ambiente com substrato macio e temperatura entre 25-30°C.
+Lagarto|Teiidae|Tupinambis merianae|Teiú|onívoro, inteligente, grande porte|Terrário espaçoso com áreas para escavação e banho de sol.|Ambiente com troncos, pedras e acesso a luz UVB.
+
+#Coelho
+
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Anão Holandês|pequeno porte, dócil, pelagem densa|Gaiola espaçosa com substrato macio.|Proporcione tempo fora da gaiola para exercícios diários.
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Rex|médio porte, ativo, pelagem aveludada|Gaiola com espaço para movimentação e brinquedos.|Ambiente com enriquecimento e interação diária.
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Holland Lop|pequeno porte, orelhas caídas, carinhoso|Gaiola confortável com áreas para se esconder.|Ambiente tranquilo e socialização com outros coelhos.
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Lionhead|pequeno porte, pelagem longa na cabeça, curioso|Gaiola com espaço para escavação e brinquedos.|Ambiente com cuidados regulares com a pelagem.
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Chinchila|médio porte, pelagem cinza, tranquilo|Gaiola espaçosa com substrato absorvente.|Ambiente com temperatura controlada e pouca umidade.
+
+
+#Peixe
+
+Peixe|Cyprinidae|Carassius auratus|Peixe-dourado|resistente, sociável, água fria|Aquário espaçoso com filtragem eficiente.|Evite superlotação e mantenha temperatura entre 18-22°C.
+Peixe|Cichlidae|Pterophyllum scalare|Acará-bandeira|territorial, elegante, água morna|Aquário com plantas e esconderijos.|Mantenha temperatura entre 24-28°C e pH levemente ácido.
+Peixe|Poeciliidae|Poecilia reticulata|Guppy|ativo, colorido, fácil de cuidar|Aquário com plantas e espaço para natação.|Mantenha temperatura entre 22-28°C e pH neutro.
+Peixe|Characidae|Paracheirodon innesi|Neon Tetra|pacífico, pequeno porte, cardume|Aquário com iluminação suave e plantas.|Mantenha temperatura entre 20-26°C e pH levemente ácido.
+Peixe|Osphronemidae|Betta splendens|Betta|territorial, colorido, labirintídeo|Aquário individual com plantas e esconderijos.|Evite correnteza forte e mantenha temperatura entre 24-30°C.
+
+
+#Hamster
+
+Hamster|Cricetinae|Mesocricetus auratus|Hamster Sírio|solitário, noturno, escavador|Gaiola com túneis e rodas de exercício.|Evite contato com outros hamsters para prevenir brigas.
+Hamster|Cricetinae|Phodopus sungorus|Hamster Anão Russo|sociável, pequeno porte, ativo|Gaiola com compartimentos e brinquedos.|Ambiente com temperatura entre 20-24°C e substrato adequado.
+Hamster|Cricetinae|Phodopus campbelli|Hamster Anão Campbell|territorial, pequeno porte, rápido|Gaiola com esconderijos e rodas silenciosas.|Evite agrupamento com outros hamsters para prevenir conflitos.
+Hamster|Cricetinae|Phodopus roborovskii|Hamster Roborovski|muito pequeno, ágil, tímido|Gaiola com tubos e áreas para escavação.|Ambiente calmo e manuseio cuidadoso devido à sua agilidade.
+Hamster|Cricetinae|Cricetulus griseus|Hamster Chinês|pequeno porte, cauda longa, tímido|Gaiola com espaço vertical e brinquedos.|Ambiente tranquilo e interação gradual para socialização.

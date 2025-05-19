@@ -1,74 +1,42 @@
 import os
 import sys
+import random
+import re
+from datetime import datetime
 
-CAMINHO_PETS = os.path.join("Projeto-FP-CESAR-Un.-2\src\BD\BDambiente.txt")
-sys.path.append("Projeto-FP-CESAR-Un.-2")
-from Inicio import inicio
+CAMINHO_PETS = os.path.join("Projeto-FP-CESAR-Un.-2\src\BD\pets.txt")
+
+#Importação funções globais
+sys.path.append("Projeto-FP-CESAR-Un.-2\src")
+from FuncoesGlobais import *
 
 list_pets = []
 
-def lin():
-    print("-" * 60)
-
 def salvar_pets():
-    with open(CAMINHO_PETS, "w", encoding="utf-8") as file:
-        for pet in list_pets:
-            for k, v in pet.items():
-                file.write(f"{k}: {v}\n")
-            file.write("-" * 40 + "\n")  
-    print("Dados salvos no arquivo com sucesso!")
+    # Garantir que o diretório existe
+    os.makedirs(os.path.dirname(CAMINHO_PETS), exist_ok=True)
+    
+    try:
+        with open(CAMINHO_PETS, "w", encoding="utf-8") as file:
+            for pet in list_pets:
+                for k, v in pet.items():
+                    file.write(f"{k}: {v}\n")
+                file.write("-" * 40 + "\n")  
+        print("Dados salvos no arquivo com sucesso!")
+    except Exception as e:
+        print(f"Erro ao salvar dados: {e}")
     lin()
 
-def carregar_pets():
-    try:
-        with open(CAMINHO_PETS, "r", encoding="utf-8") as file:
-            pet = {}
-            for line in file:
-                line = line.strip()
-                if line == "-" * 40:
-                    if pet:
-                        list_pets.append(pet)
-                        pet = {}
-                elif ":" in line:
-                    key, value = line.split(":", 1)
-                    key = key.strip()
-                    value = value.strip()
-                    if key.lower() == "peso":
-                        try:
-                            value = float(value.replace(",", "."))
-                        except ValueError:
-                            value = 0.0
-                    pet[key] = value
-            if pet:
-                list_pets.append(pet)
-    except FileNotFoundError:
-        print("Nenhum arquivo encontrado. Começando com uma lista vazia.")
-        lin()
-
-def menuSairOuReinicio():
-    while True:
-        lin()
-        final = input("O que você deseja fazer agora?\n"
-                      "1 - Voltar ao menu principal\n"
-                      "2 - Sair\n"
-                      "\nEscolha: ").strip().lower()
-        lin()
-
-        if final in ["1", "voltar", "inicio", "menu"]:
-            return
-        elif final in ["2", "fechar", "sair"]:
-            print("Voltando ao menu principal")
-            inicio()
-            exit()
-        else:
-            print("Opção inválida. Tente novamente.")
 
 def informacoes():
     while True:
         try:
-            name = input("Informe, por favor, o nome do seu pet: ").strip().capitalize()
+            name = input("Informe, por favor, o nome do seu pet: ").strip()
+            if not name:
+                raise ValueError("O nome não pode estar vazio.")
             if not name.replace(" ", "").isalpha():
                 raise ValueError("O nome deve conter apenas letras.")
+            name = name.capitalize()
             lin()
             break
         except ValueError as error:
@@ -77,9 +45,12 @@ def informacoes():
 
     while True:
         try:
-            species = input("Qual é a espécie do seu pet? ").strip().capitalize()
+            species = input("Qual é a espécie do seu pet? ").strip()
+            if not species:
+                raise ValueError("A espécie não pode estar vazia.")
             if not species.replace(" ", "").isalpha():
                 raise ValueError("A espécie deve conter apenas letras.")
+            species = species.capitalize()
             lin()
             break
         except ValueError as error:
@@ -88,9 +59,12 @@ def informacoes():
 
     while True:
         try:
-            race = input("E qual é a raça do seu pet? ").strip().capitalize()
+            race = input("E qual é a raça do seu pet? ").strip()
+            if not race:
+                raise ValueError("A raça não pode estar vazia.")
             if not race.replace(" ", "").isalpha():
                 raise ValueError("A raça deve conter apenas letras.")
+            race = race.capitalize()
             lin()
             break
         except ValueError as error:
@@ -106,8 +80,11 @@ def informacoes():
                 raise ValueError("O dia deve estar entre 1 e 31.")
             lin()
             break
-        except ValueError:
-            print("Erro: Insira um número válido para o dia.")
+        except ValueError as e:
+            if "invalid literal for int" in str(e):
+                print("Erro: Insira um número válido para o dia.")
+            else:
+                print(f"Erro: {e}")
             lin()
 
     mounths = {
@@ -119,8 +96,12 @@ def informacoes():
 
     while True:
         mounth = input("Digite o mês de nascimento (nome ou número): ").strip().lower()
+        if not mounth:
+            print("O mês não pode estar vazio.")
+            continue
+            
         found = False
-        for key, value in mounths.items():
+        for key, value in mounths.items():  
             if mounth in value:
                 mounth = value[1]
                 found = True
@@ -132,28 +113,46 @@ def informacoes():
             print("Erro: Mês inválido.")
             lin()
 
+    current_year = datetime.now().year
     while True:
         try:
             year = int(input("Digite o ano de nascimento (ex: 2020): "))
-            if year < 1900 or year > 2025:
-                raise ValueError("Ano inválido!")
+            if year < 1900 or year > current_year:
+                raise ValueError(f"Ano inválido! Deve estar entre 1900 e {current_year}.")
             lin()
             break
-        except ValueError:
-            print("Erro: Insira um número válido para o ano.")
+        except ValueError as e:
+            if "invalid literal for int" in str(e):
+                print("Erro: Insira um número válido para o ano.")
+            else:
+                print(f"Erro: {e}")
             lin()
 
+    # Validar a data completa
+    try:
+        data_nascimento = datetime(year, int(mounth), day)
+        if data_nascimento > datetime.now():
+            print("Aviso: A data de nascimento é no futuro. Verifique se está correta.")
+    except ValueError:
+        print("Aviso: A combinação de dia/mês/ano não forma uma data válida. Usando mesmo assim.")
+    
     date_birth = f"{day}/{mounth}/{year}"
 
     while True:
         try:
-            weight = float(input("Informe o peso do seu pet (em kg): ").strip().replace(",", "."))
+            weight_input = input("Informe o peso do seu pet (em kg): ").strip().replace(",", ".")
+            if not weight_input:
+                raise ValueError("O peso não pode estar vazio.")
+            weight = float(weight_input)
             if weight <= 0:
-                raise ValueError("Peso inválido.")
+                raise ValueError("Peso inválido. Deve ser maior que zero.")
             lin()
             break
         except ValueError as error:
-            print(f"Opa! Parece que houve um erro: {error}")
+            if "could not convert string to float" in str(error):
+                print("Erro: Digite um número válido para o peso.")
+            else:
+                print(f"Opa! Parece que houve um erro: {error}")
             lin()
 
     pet = {
@@ -168,7 +167,7 @@ def informacoes():
     salvar_pets()
     print("Cadastro realizado com sucesso!")
     lin()
-    menuSairOuReinicio()
+    menuSairOuReinicio(CRUD)
 
 def read():
     if list_pets:
@@ -183,7 +182,7 @@ def read():
     else:
         print("Ainda não foi cadastrado nenhum pet.")
     lin()
-    menuSairOuReinicio()
+    menuSairOuReinicio(CRUD)
 
 def edit():
     if list_pets:
@@ -193,13 +192,19 @@ def edit():
 
         while True:
             try:
-                number = int(input("\nDigite o número do pet que deseja alterar: ")) - 1
+                number_input = input("\nDigite o número do pet que deseja alterar: ").strip()
+                if not number_input:
+                    raise ValueError("O número não pode estar vazio.")
+                number = int(number_input) - 1
                 if number < 0 or number >= len(list_pets):
                     raise IndexError("Número fora da lista.")
                 lin()
                 break
-            except ValueError:
-                print("Erro: Insira um número válido.")
+            except ValueError as e:
+                if "invalid literal for int" in str(e):
+                    print("Erro: Insira um número válido.")
+                else:
+                    print(f"Erro: {e}")
                 lin()
             except IndexError as error:
                 print(f"Tente novamente! {error}")
@@ -215,95 +220,137 @@ def edit():
             lin()
 
             if item in ['1', "nome"]:
-                list_pets[number]["Nome"] = input("Digite o novo nome do seu pet: ").strip().title()
+                while True:
+                    novo_nome = input("Digite o novo nome do seu pet: ").strip()
+                    if not novo_nome:
+                        print("O nome não pode estar vazio.")
+                        continue
+                    if not novo_nome.replace(" ", "").isalpha():
+                        print("O nome deve conter apenas letras.")
+                        continue
+                    list_pets[number]["Nome"] = novo_nome.title()
+                    break
                 break
             elif item in ['2', "espécie", "especie"]:
-                list_pets[number]["Espécie"] = input("Digite a nova espécie: ").strip().capitalize()
+                while True:
+                    nova_especie = input("Digite a nova espécie: ").strip()
+                    if not nova_especie:
+                        print("A espécie não pode estar vazia.")
+                        continue
+                    if not nova_especie.replace(" ", "").isalpha():
+                        print("A espécie deve conter apenas letras.")
+                        continue
+                    list_pets[number]["Espécie"] = nova_especie.capitalize()
+                    break
                 break
             elif item in ['3', "raça", "raca"]:
-                list_pets[number]["Raça"] = input("Digite a nova raça: ").strip().capitalize()
+                while True:
+                    nova_raca = input("Digite a nova raça: ").strip()
+                    if not nova_raca:
+                        print("A raça não pode estar vazia.")
+                        continue
+                    if not nova_raca.replace(" ", "").isalpha():
+                        print("A raça deve conter apenas letras.")
+                        continue
+                    list_pets[number]["Raça"] = nova_raca.capitalize()
+                    break
                 break
             elif item in ['4', "peso", "massa"]:
                 while True:
                     try:
-                        novo_peso = float(input("Digite o novo peso: ").replace(",", ".").strip())
+                        peso_input = input("Digite o novo peso: ").replace(",", ".").strip()
+                        if not peso_input:
+                            raise ValueError("O peso não pode estar vazio.")
+                        novo_peso = float(peso_input)
                         if novo_peso <= 0:
                             raise ValueError("Peso deve ser um número positivo.")
                         list_pets[number]["Peso"] = novo_peso
                         break
                     except ValueError as error:
-                        print(f"Tente novamente! {error}")
+                        if "could not convert string to float" in str(error):
+                            print("Erro: Digite um número válido para o peso.")
+                        else:
+                            print(f"Tente novamente! {error}")
                         lin()
+                break
             else:
-                print("Opção inválida!")
+                print("Opção inválida, tente novamente.")
                 lin()
-                continue
 
         salvar_pets()
-        print("Alteração realizada com sucesso!")
-        lin()
+        print("Informações atualizadas com sucesso!")
     else:
-        print("Nenhum pet cadastrado.")
-        lin()
-
-    menuSairOuReinicio()
+        print("Nenhum pet cadastrado para editar.")
+    lin()
+    menuSairOuReinicio(CRUD)
 
 def remove():
     if list_pets:
         for ordem, pet in enumerate(list_pets):
             print(f"Pet {ordem + 1} - {pet['Nome']}")
             lin()
-
         while True:
             try:
-                number = int(input("\nDigite o número do pet que deseja remover: ")) - 1
-                if number < 0 or number >= len(list_pets):
+                escolha_input = input("Digite o número do pet que deseja remover: ").strip()
+                if not escolha_input:
+                    raise ValueError("O número não pode estar vazio.")
+                escolha = int(escolha_input) - 1
+                if escolha < 0 or escolha >= len(list_pets):
                     raise IndexError("Número fora da lista.")
                 lin()
                 break
-            except ValueError:
-                print("Erro: Insira um número válido.")
+            except ValueError as e:
+                if "invalid literal for int" in str(e):
+                    print("Digite um número válido.")
+                else:
+                    print(f"Erro: {e}")
                 lin()
             except IndexError as error:
                 print(f"Tente novamente! {error}")
                 lin()
-
-        list_pets.pop(number)
-        salvar_pets()
-        print("Pet removido com sucesso!")
-        lin()
+        confirm = input(f"Tem certeza que deseja remover {list_pets[escolha]['Nome']}? (s/n): ").lower()
+        if confirm == "s":
+            del list_pets[escolha]
+            salvar_pets()
+            print("Pet removido com sucesso!")
+        else:
+            print("Operação cancelada.")
     else:
-        print("Nenhum pet cadastrado.")
-        lin()
-
-    menuSairOuReinicio()
-
-carregar_pets()
+        print("Nenhum pet cadastrado para remover.")
+    lin()
+    menuSairOuReinicio(CRUD)
 
 def CRUD():
+    # Limpar a lista antes de carregar
+    list_pets.clear()
+    carregar_pets(CAMINHO_PETS, list_pets)
+    
     while True:
+        print("\nO que você deseja fazer?")
+        print("1 - Cadastrar novo pet")
+        print("2 - Ver pets cadastrados")
+        print("3 - Editar informações de pet")
+        print("4 - Remover pet")
+        print("5 - Voltar ao menu principal")
+        
+        opcao = input("\nEscolha uma opção: ").strip()
         lin()
-        escolha = input("Selecione uma opção:\n"
-                        "\n1 - Cadastrar pet\n"
-                        "2 - Visualizar pets cadastrados\n"
-                        "3 - Editar pet\n"
-                        "4 - Remover pet\n"
-                        "5 - Sair\n"
-                        "\nQual a sua decisão: ").strip().lower()
-        lin()
-
-        if escolha in ['1', "cadastrar", "adicionar"]:
+        
+        if opcao == "1":
             informacoes()
-        elif escolha in ['2', "visualizar", "lista", "ler"]:
+            return
+        elif opcao == "2":
             read()
-        elif escolha in ['3', "editar", "alterar", "mudar"]:
+            return
+        elif opcao == "3":
             edit()
-        elif escolha in ['4', "remover", "excluir", "deletar"]:
+            return
+        elif opcao == "4":
             remove()
-        elif escolha in ['5', "sair", "exit", "fechar"]:
-            print("Obrigado por usar o Gerenciador de Pets! Até mais.")
-            break
+            return
+        elif opcao == "5":
+            return
         else:
-            print("Opção inválida! Escolha um número correto.")
-            lin()
+            print("Opção inválida. Tente novamente.")
+
 #CRUD()
