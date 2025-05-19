@@ -1,7 +1,3 @@
-import os
-import random 
-import sys
-os.system("cls")
 
 import os
 os.system("cls")
