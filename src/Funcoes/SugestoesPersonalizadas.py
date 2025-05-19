@@ -59,7 +59,7 @@ def SugestoesPersonalizadas():
 
     while True:
                 try:
-                    opcoes = int(input("Qual opção você deseja?\n[1] - Sugestões personalizadas\n[2] - Voltar"))
+                    opcoes = int(input("\nQual opção você deseja?\n[1] - Sugestões personalizadas\n[2] - Voltar\nR: "))
                     if opcoes == 1:
                         tipo = int(input("Qual é a classe do seu animal?\n[1] - Mamífero\n[2] - Ave\n[3] - Réptil\n[4] - Peixe\n[5] - Anfíbio\nR: "))
                         if tipo>5 or tipo<1:
