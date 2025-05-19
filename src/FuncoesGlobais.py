@@ -31,7 +31,6 @@ def menuSairOuReinicio(funcLoop):
         if escolha == "1":
             inicio()
         elif escolha == "2":
-            print("Encerrando o programa. Até logo!")
             funcLoop()
         else:
             print("Opção inválida. Tente novamente.")

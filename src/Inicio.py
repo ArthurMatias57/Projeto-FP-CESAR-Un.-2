@@ -1,6 +1,7 @@
 import sys
+import os
 
-sys.path.append("Projeto-FP-CESAR-Un.-2-main\src")
+# sys.path.append("Projeto-FP-CESAR-Un.-2-main\src")
 
 from Funcoes.cadastro_eventos import registrar_evento
 from Funcoes.metas_saude import metasDeSaude
@@ -27,7 +28,7 @@ def titulo_ascii_vida_pet():
 
 def inicio():
     try:
-        selecao = int(input("Selecione uma das opções: \n1- CRUD\n2- Metas de saúde\n3- Sugestões personalizadas\n4- Cadastro de eventos\nR:"))
+        selecao = int(input("Selecione uma das opções: \n1- CRUD\n2- Metas de saúde\n3- Sugestões personalizadas\n4- Cadastro de eventos\n5- Encerrar Programa\nR: "))
         
         match selecao:
             case 1:
@@ -44,7 +45,9 @@ def inicio():
             case _:
                 print("Por favor, digite uma opção válida!")
     except ValueError:
+        os.system("cls")
         print("Comando não Reconhecido! Digite uma opção válida!")
+        inicio()
 titulo_ascii_vida_pet()
 inicio()
 

@@ -4,6 +4,7 @@ import sys
 
 os.system("cls")
 import random 
+from FuncoesGlobais import *
 
 sys.path.append("Projeto-FP-CESAR-Un.-2\src\FuncoesGlobais.py") 
 from FuncoesGlobais import *
@@ -63,78 +64,85 @@ def SugestoesPersonalizadas():
 
     while True:
                 try:
-                    tipo = int(input("Qual é a classe do seu animal?\n[1] - Mamífero\n[2] - Ave\n[3] - Réptil\n[4] - Peixe\n[5] - Anfíbio\nR: "))
-                    if tipo>5 or tipo<1:
-                        os.system("cls")
-                        print("Digite um número entre [1] e [5]!")
-                        continue
-                    porte = int(input("Qual é o porte do seu animal?\n[1] - Grande\n[2] - Médio\n[3] - Pequeno\nR: "))
-                    if porte>3 or porte<1:
-                        os.system("cls")
-                        print("Digite um número entre [1] e [3]")
-                        continue
-                    faixa_etaria = int(input("Qual a faixa etária do seu animal?\n[1] - Jovem\n[2] - Adulto\n[3] - Idoso\nR: "))
-                    if faixa_etaria>3 or porte<1:
-                        os.system("cls")
-                        print("Digite um número entre [1] e [3]")
-                        continue
-                    match tipo:
-                        case 1:
-                            print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
-                                \nAlimentação Sugerida: {random.choice(mamiferosAlimentacao)}\nAtividade Sugerida: {random.choice(mamiferosAtividades)}\
-                                \nBrinquedo Sugerido: {random.choice(mamiferosBrinquedos)}\nx---------------------------------------------x")
-                            match faixa_etaria:
-                                case 1:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_mamiferos_jovens)}\nx---------------------------------------------x\n")
-                                case 2:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_mamiferos_adultos)}\nx---------------------------------------------x\n")
-                                case 3:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_mamiferos_idosos)}\nx---------------------------------------------x\n")
-                        case 2:
-                            print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
-                                \nAlimentação Sugerida: {random.choice(avesAlimentacao)}\nAtividade Sugerida: {random.choice(avesAtividades)}\
-                                \nBrinquedo Sugerido: {random.choice(avesBrinquedos)}\nx---------------------------------------------x")
-                            match faixa_etaria:
-                                case 1:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_aves_jovens)}\nx---------------------------------------------x\n")
-                                case 2:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_aves_adultos)}\nx---------------------------------------------x\n")
-                                case 3:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_aves_idosos)}\nx---------------------------------------------x\n")
-                        case 3:
-                            print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
-                                \nAlimentação Sugerida: {random.choice(repteisAlimentacao)}\nAtividade Sugerida: {random.choice(repteisAtividades)}\
-                                \nBrinquedo Sugerido: {random.choice(repteisBrinquedo)}\nx---------------------------------------------x")
-                            match faixa_etaria:
-                                case 1:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_repteis_jovens)}\nx---------------------------------------------x\n")
-                                case 2:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_repteis_jovens)}\nx---------------------------------------------x\n")
-                                case 3:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_repteis_jovens)}\nx---------------------------------------------x\n")
-                        case 4:
-                            print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
-                                \nAlimentação Sugerida: {random.choice(peixesAlimentacao)}\nAtividade Sugerida: {random.choice(peixesAtividades)}\
-                                \nBrinquedo Sugerido: {random.choice(peixesBrinquedos)}\nx---------------------------------------------x")
-                            match faixa_etaria:
-                                case 1:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_peixes_jovens)}\nx---------------------------------------------x\n")
-                                case 2:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_peixes_jovens)}\nx---------------------------------------------x\n")
-                                case 3:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_peixes_jovens)}\nx---------------------------------------------x\n")
-                        
-                        case 5:
-                            print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
-                                \nAlimentação Sugerida: {random.choice(anfibiosAlimentacao)}\nAtividade Sugerida: {random.choice(anfibiosAtividades)}\
-                                \nBrinquedo Sugerido: {random.choice(anfibiosBrinquedos)}\nx---------------------------------------------x\n")
-                            match faixa_etaria:
-                                case 1:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_anfibios_jovens)}\nx---------------------------------------------x\n")
-                                case 2:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_anfibios_jovens)}\nx---------------------------------------------x\n")
-                                case 3:
-                                    print(f"Sugestão extra de cuidado: {random.choice(cuidados_anfibios_jovens)}\nx---------------------------------------------x\n")
+                    opcoes = int(input("\nQual opção você deseja?\n[1] - Sugestões personalizadas\n[2] - Voltar\nR: "))
+                    if opcoes == 1:
+                        tipo = int(input("Qual é a classe do seu animal?\n[1] - Mamífero\n[2] - Ave\n[3] - Réptil\n[4] - Peixe\n[5] - Anfíbio\nR: "))
+                        if tipo>5 or tipo<1:
+                            os.system("cls")
+                            print("Digite um número entre [1] e [5]!")
+                            continue
+                        porte = int(input("Qual é o porte do seu animal?\n[1] - Grande\n[2] - Médio\n[3] - Pequeno\nR: "))
+                        if porte>3 or porte<1:
+                            os.system("cls")
+                            print("Digite um número entre [1] e [3]")
+                            continue
+                        faixa_etaria = int(input("Qual a faixa etária do seu animal?\n[1] - Jovem\n[2] - Adulto\n[3] - Idoso\nR: "))
+                        if faixa_etaria>3 or porte<1:
+                            os.system("cls")
+                            print("Digite um número entre [1] e [3]")
+                            continue
+                        match tipo:
+                            case 1:
+                                print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
+                                    \nAlimentação Sugerida: {random.choice(mamiferosAlimentacao)}\nAtividade Sugerida: {random.choice(mamiferosAtividades)}\
+                                    \nBrinquedo Sugerido: {random.choice(mamiferosBrinquedos)}\nx---------------------------------------------x")
+                                match faixa_etaria:
+                                    case 1:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_mamiferos_jovens)}\nx---------------------------------------------x\n")
+                                    case 2:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_mamiferos_adultos)}\nx---------------------------------------------x\n")
+                                    case 3:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_mamiferos_idosos)}\nx---------------------------------------------x\n")
+                            case 2:
+                                print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
+                                    \nAlimentação Sugerida: {random.choice(avesAlimentacao)}\nAtividade Sugerida: {random.choice(avesAtividades)}\
+                                    \nBrinquedo Sugerido: {random.choice(avesBrinquedos)}\nx---------------------------------------------x")
+                                match faixa_etaria:
+                                    case 1:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_aves_jovens)}\nx---------------------------------------------x\n")
+                                    case 2:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_aves_adultos)}\nx---------------------------------------------x\n")
+                                    case 3:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_aves_idosos)}\nx---------------------------------------------x\n")
+                            case 3:
+                                print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
+                                    \nAlimentação Sugerida: {random.choice(repteisAlimentacao)}\nAtividade Sugerida: {random.choice(repteisAtividades)}\
+                                    \nBrinquedo Sugerido: {random.choice(repteisBrinquedo)}\nx---------------------------------------------x")
+                                match faixa_etaria:
+                                    case 1:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_repteis_jovens)}\nx---------------------------------------------x\n")
+                                    case 2:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_repteis_jovens)}\nx---------------------------------------------x\n")
+                                    case 3:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_repteis_jovens)}\nx---------------------------------------------x\n")
+                            case 4:
+                                print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
+                                    \nAlimentação Sugerida: {random.choice(peixesAlimentacao)}\nAtividade Sugerida: {random.choice(peixesAtividades)}\
+                                    \nBrinquedo Sugerido: {random.choice(peixesBrinquedos)}\nx---------------------------------------------x")
+                                match faixa_etaria:
+                                    case 1:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_peixes_jovens)}\nx---------------------------------------------x\n")
+                                    case 2:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_peixes_jovens)}\nx---------------------------------------------x\n")
+                                    case 3:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_peixes_jovens)}\nx---------------------------------------------x\n")
+                            
+                            case 5:
+                                print(f"\nSua sugestão personalizada está pronta!\nx---------------------------------------------x\
+                                    \nAlimentação Sugerida: {random.choice(anfibiosAlimentacao)}\nAtividade Sugerida: {random.choice(anfibiosAtividades)}\
+                                    \nBrinquedo Sugerido: {random.choice(anfibiosBrinquedos)}\nx---------------------------------------------x\n")
+                                match faixa_etaria:
+                                    case 1:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_anfibios_jovens)}\nx---------------------------------------------x\n")
+                                    case 2:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_anfibios_jovens)}\nx---------------------------------------------x\n")
+                                    case 3:
+                                        print(f"Sugestão extra de cuidado: {random.choice(cuidados_anfibios_jovens)}\nx---------------------------------------------x\n")
+                    elif opcoes ==2:
+                        os.system('cls')
+                        menuSairOuReinicio(SugestoesPersonalizadas)
+                    else:
+                        print("Selecione uma opção válida")
 
 
                 except ValueError:
