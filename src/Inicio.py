@@ -1,11 +1,11 @@
 import sys
 
-sys.path.append("Projeto-FP-CESAR-Un.-2-main\src")
+# sys.path.append("Projeto-FP-CESAR-Un.-2-main\src")
 
 from Funcoes.cadastro_eventos import registrar_evento
 from Funcoes.metas_saude import metasDeSaude
 from Funcoes.CRUD import CRUD
-from Funcoes.SugestoesPersonalizadas import sugestoesPersonalizadas
+from Funcoes.SugestoesPersonalizadas import SugestoesPersonalizadas
 
 def titulo_ascii_vida_pet():
     print("\033[95m██    ██ ██  ██████   █████  \033[0m")  # VIDA
@@ -35,7 +35,7 @@ def inicio():
             case 2:
                 metasDeSaude()
             case 3:
-                sugestoesPersonalizadas()
+                SugestoesPersonalizadas()
             case 4:
                 registrar_evento()
             case 5:
