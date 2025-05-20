@@ -1,19 +1,26 @@
 import os
+import time
 
 """
 Escopo global
 
 """
 
+def transicao():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("Carregando ", end='', flush=True)
+    cor = ["\033[31m", "\033[32m", '\033[33m']
+
+    for i in range(3):
+        print(cor[i] + '. ' + "\033[0m", end='', flush=True)  # Força cada ponto aparecer
+        time.sleep(0.5)
+
+    time.sleep(0.5)  # Pequena pausa final antes de limpar
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 # Função para separar visualmente as seções
 def lin():
-    print("-" * 60)
-
-def separar():
-    print("-" * 60)
-
-def template():
     print("-" * 60)
 
 # Função unificada para menu de saída ou reinício
@@ -73,3 +80,4 @@ def carregar_pets(CAMINHO_PETS, list_pets):
     except Exception as e:
         print(f"Erro ao carregar dados: {e}")
     lin()
+#transicao()

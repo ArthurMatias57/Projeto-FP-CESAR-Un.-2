@@ -10,10 +10,6 @@ CAMINHO_EVENTOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "BD",
 sys.path.append("Projeto-FP-CESAR-Un.-2\src")
 from FuncoesGlobais import *
 
-# Função separadora
-def separar():
-    print("-" * 60)
-
 # Lista para armazenar os eventos 
 eventos_pet = []
 
@@ -45,7 +41,7 @@ def salvar_eventos():
         print("Eventos salvos no arquivo com sucesso!")
     except Exception as e:
         print(f"Erro ao salvar eventos: {e}")
-    separar()
+    lin()
 
 def carregar_eventos():
     # Limpar a lista antes de carregar
@@ -55,7 +51,7 @@ def carregar_eventos():
         # Verificar se o arquivo existe
         if not os.path.exists(CAMINHO_EVENTOS):
             print("Nenhum arquivo de eventos encontrado. Começando com uma lista vazia.")
-            separar()
+            lin()
             return
             
         with open(CAMINHO_EVENTOS, "r", encoding="utf-8") as file:
@@ -77,33 +73,33 @@ def carregar_eventos():
         print(f"{len(eventos_pet)} eventos carregados com sucesso!")
     except Exception as e:
         print(f"Erro ao carregar eventos: {e}")
-    separar()
+    lin()
 
 def listar_eventos():
     """Lista todos os eventos cadastrados"""
     if not eventos_pet:
         print("Não há eventos cadastrados.")
-        separar()
+        lin()
         return
         
     print("\nLista de eventos cadastrados:")
-    separar()
+    lin()
     
     for i, evento in enumerate(eventos_pet, 1):
         print(f"Evento {i}:")
         for chave, valor in evento.items():
             print(f"{chave}: {valor}")
-        separar()
+        lin()
 
 def buscar_eventos_por_pet():
     """Busca eventos por nome do pet"""
     if not eventos_pet:
         print("Não há eventos cadastrados.")
-        separar()
+        lin()
         return
         
     nome_pet = input("Digite o nome do pet para buscar eventos: ").strip().capitalize()
-    separar()
+    lin()
     
     eventos_encontrados = [e for e in eventos_pet if e["Nome do pet"].lower() == nome_pet.lower()]
     
@@ -114,13 +110,13 @@ def buscar_eventos_por_pet():
         for evento in eventos_encontrados:
             for chave, valor in evento.items():
                 print(f"{chave}: {valor}")
-            separar()
+            lin()
 
 def excluir_evento():
     """Exclui um evento da lista"""
     if not eventos_pet:
         print("Não há eventos cadastrados para excluir.")
-        separar()
+        lin()
         return
         
     listar_eventos()
@@ -143,12 +139,12 @@ def excluir_evento():
     except ValueError:
         print("Por favor, digite um número válido.")
     
-    separar()
+    lin()
 
 def registrar_evento():
     # Carregar eventos existentes
     carregar_eventos()
-    separar()
+    lin()
     print("Vamos registrar um novo evento para o seu PET!")
 
     # Validação do nome do pet
@@ -159,7 +155,7 @@ def registrar_evento():
             break
         else:
             print("O nome do pet não pode estar vazio. Tente novamente.")
-    separar()
+    lin()
 
     # Menu de tipos de evento
     print("Qual tipo de evento deseja registrar?")
@@ -183,7 +179,7 @@ def registrar_evento():
         else:
             print("Opção inválida. Por favor, escolha um número de 1 a 3.")
     
-    separar()
+    lin()
 
     # Validação da data
     while True:
@@ -193,13 +189,13 @@ def registrar_evento():
         else:
             print("Formato de data inválido. Use o formato DD/MM/AAAA e uma data válida.")
     
-    separar()
+    lin()
     
     # Observações (opcional)
     obs = input("Observações (opcional): ").strip()
     if not obs:
         obs = "Nenhuma"
-    separar()
+    lin()
 
     # Criar e adicionar o evento
     evento = {
@@ -213,7 +209,7 @@ def registrar_evento():
     eventos_pet.append(evento)
     salvar_eventos()
     print("Evento registrado com sucesso!")
-    separar()
+    lin()
     
     # Menu de opções após o registro
     while True:
@@ -225,7 +221,7 @@ def registrar_evento():
         print("5 - Voltar ao menu principal")
         
         opcao = input("Escolha uma opção: ").strip()
-        separar()
+        lin()
         
         if opcao == "1":
             return registrar_evento()  # Recursão para registrar outro evento

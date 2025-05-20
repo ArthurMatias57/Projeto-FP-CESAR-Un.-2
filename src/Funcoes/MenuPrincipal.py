@@ -2,6 +2,7 @@ import sys
 import os
 
 sys.path.append("Projeto-FP-CESAR-Un.-2-main\src")
+from FuncoesGlobais import *
 
 from Funcoes.cadastro_eventos import registrar_evento
 from Funcoes.metas_saude import metasDeSaude
@@ -35,14 +36,19 @@ def inicio():
         
         match selecao:
             case 1:
+                transicao()
                 CRUD()
             case 2:
+                transicao()
                 metasDeSaude()
             case 3:
+                transicao()
                 SugestoesPersonalizadas()
             case 4:
+                transicao()
                 registrar_evento()
             case 5:
+                transicao()
                 recomendar_ambiente()
             case 6:
                 print("Encerrando o Programa...\n")

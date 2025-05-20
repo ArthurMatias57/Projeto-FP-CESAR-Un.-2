@@ -10,7 +10,7 @@ from FuncoesGlobais import *
 def add_metas(list_metas, nova_meta):
     list_metas.append(nova_meta)
     print(f"Meta '{nova_meta}' adicionada com sucesso!")
-    template()
+    lin()
 
 def pop_metas(indice, list_metas):
     if 0 <= indice < len(list_metas):
@@ -18,7 +18,7 @@ def pop_metas(indice, list_metas):
         print(f"Meta '{meta_removida}' removida com sucesso!")
     else:
         print("Índice inválido!")
-    template()
+    lin()
 
 def done_metas(indice):
     try:
@@ -36,13 +36,13 @@ def done_metas(indice):
             print(f"Meta marcada como concluída!")
         else:
             print("Índice inválido!")
-        template()
+        lin()
     except FileNotFoundError:
         print("Arquivo de metas não encontrado!")
-        template()
+        lin()
     except Exception as e:
         print(f"Erro ao marcar meta como concluída: {e}")
-        template()
+        lin()
 
 def change_metas(indice, nova_meta):
     try:
@@ -60,23 +60,23 @@ def change_metas(indice, nova_meta):
             print(f"Meta alterada de '{meta_antiga}' para '{nova_meta}'!")
         else:
             print("Índice inválido!")
-        template()
+        lin()
     except FileNotFoundError:
         print("Arquivo de metas não encontrado!")
-        template()
+        lin()
     except Exception as e:
         print(f"Erro ao alterar meta: {e}")
-        template()
+        lin()
 
 def clean_metas():
     try:
         with open(CAMINHO_ARQUIVO, 'w', encoding='utf-8') as arquivo:
             arquivo.write("")
         print("Todas as metas foram removidas!")
-        template()
+        lin()
     except Exception as e:
         print(f"Erro ao limpar as metas: {e}")
-        template()
+        lin()
 
 def metasDeSaude():
     # Garantir que o arquivo existe
@@ -88,9 +88,9 @@ def metasDeSaude():
     list_metas = []
     
     while True:
-        template()
+        lin()
         print("METAS DE SAÚDE PARA SEU PET")
-        template()
+        lin()
         
         try:
             escolha_input = input('[1] Adicionar\n[2] Apagar\n[3] Marcar como feito\n[4] Alterar\n[5] Mostrar\n[6] Limpar\n[7] Sair\nVocê deseja: ').strip()
@@ -221,14 +221,14 @@ def metasDeSaude():
                     with open(CAMINHO_ARQUIVO, 'r', encoding='utf-8') as arquivo:
                         list_metas = [linha.strip() for linha in arquivo]
                     
-                    template()
+                    lin()
                     if not list_metas:
                         print("Não há metas cadastradas!")
                     else:
                         print("SUAS METAS DE SAÚDE:")
                         for i, meta in enumerate(list_metas):
                             print(f"[{i}] {meta}")
-                    template()
+                    lin()
                 except Exception as e:
                     print(f"Erro ao mostrar metas: {e}")
 
