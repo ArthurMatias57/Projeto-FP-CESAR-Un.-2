@@ -2,50 +2,63 @@
 
 #Cachorro
 
-Cachorro|Retrievers|Golden Retriever|Golden Retriever|ativo, sociável, grande porte|Necessita de espaço para atividades físicas e interação social.|Ambiente com quintal amplo e brinquedos interativos.
-Cachorro|Retrievers|Labrador Retriever|Labrador Retriever|amigável, energético, médio porte|Ambiente com espaço para exercícios e interação com a família.|Quintal cercado e acesso a brinquedos que estimulem a mente.
-Cachorro|Terriers|Beagle|Beagle|curioso, independente, pequeno porte|Necessita de atividades que estimulem o olfato e a mente.|Ambiente com brinquedos interativos e passeios frequentes.
-Cachorro|Boxers|Boxer|Boxer|protetor, brincalhão, médio porte|Ambiente com espaço para brincadeiras e interação com crianças.|Quintal seguro e atividades que canalizem sua energia.
-Cachorro|Setters|Setter Irlandês|Setter Irlandês|ativo, sociável, grande porte|Necessita de espaço para correr e atividades ao ar livre.|Ambiente com acesso a áreas abertas e exercícios regulares.
+#Cachorro
+
+Cachorro|Retrievers|Golden Retriever|Golden Retriever|pelo dourado, grande porte, orelhas caídas, corpo alongado, focinho largo, olhos escuros|Espaços amplos para atividades físicas e socialização são ideais para Retrievers.|Goldens adoram quintais grandes e brinquedos que estimulem a interação.
+Cachorro|Retrievers|Labrador Retriever|Labrador Retriever|pelo curto, médio porte, focinho alongado, peito largo, patas fortes, olhos castanhos|Espaços amplos para atividades físicas e socialização são ideais para Retrievers.|Um quintal cercado e brinquedos interativos são essenciais para o bem-estar do Labrador.
+Cachorro|Terriers|Beagle|Beagle|pelagem curta, médio porte, orelhas longas, corpo compacto, rabo ereto, olhos grandes|Terriers se beneficiam de ambientes com estímulos mentais e espaço para exploração.|Ambiente com brinquedos desafiadores e passeios regulares é ideal para o Beagle.
+Cachorro|Boxers|Boxer|Boxer|focinho curto, porte médio, corpo musculoso, orelhas pequenas, cauda curta, olhos expressivos|Boxers precisam de espaço para canalizar sua energia e interagir com a família.|Ambiente com espaço aberto e estímulo físico regular é essencial.
+Cachorro|Setters|Setter Irlandês|Setter Irlandês|pelagem longa, grande porte, corpo atlético, orelhas longas, cauda plumada, olhos claros|Setters necessitam de ambientes amplos e oportunidades para corrida.|Ambientes com acesso ao ar livre e atividades regulares são ideais.
+
 
 #Gato
 
-Gato|Felinos de pelo curto|Siamês|Siamês|vocal, carinhoso, esguio|Ambiente tranquilo com locais elevados para descanso.|Espaço com arranhadores e prateleiras para escalada.
-Gato|Felinos de pelo longo|Persa|Persa|calmo, dócil, pelagem longa|Ambiente silencioso com locais confortáveis para repouso.|Espaço com almofadas e cuidados regulares com a pelagem.
-Gato|Felinos de grande porte|Maine Coon|Maine Coon|amigável, brincalhão, grande porte|Ambiente espaçoso com oportunidades para escalada.|Áreas com estruturas verticais e brinquedos interativos.
-Gato|Felinos exóticos|Bengal|Bengal|ativo, curioso, pelagem exótica|Ambiente enriquecido com estímulos visuais e físicos.|Espaço com brinquedos que simulem caça e áreas para escalar.
-Gato|Felinos sem pelo|Sphynx|Sphynx|afetuoso, curioso, sem pelo|Ambiente aquecido com locais macios para descanso.|Espaço com cobertores e proteção contra correntes de ar.
+Gato|Felinos de pelo curto|Siames|Siames|pelagem curta, corpo esguio, olhos azuis, patas longas, cauda fina, orelhas grandes|Felinos de pelo curto gostam de locais elevados e ambientes calmos.|Siames aprecia areas para subir e descansar com tranquilidade.
+Gato|Felinos de pelo longo|Persa|Persa|pelagem longa, corpo compacto, focinho achatado, olhos grandes, patas curtas, cauda espessa|Ambientes silenciosos e macios sao ideais para felinos de pelo longo.|Persas necessitam de areas aconchegantes e cuidados com os pelos.
+Gato|Felinos de grande porte|Maine Coon|Maine Coon|pelagem densa, grande porte, cauda longa, orelhas pontudas, patas largas, corpo alongado|Gatos grandes precisam de espaco vertical e horizontal para explorar.|Maine Coons se beneficiam de prateleiras altas e areas de escalada.
+Gato|Felinos exoticos|Bengal|Bengal|pelagem manchada, corpo atletico, olhos verdes, cauda grossa, patas musculosas, cabeca pequena|Felinos exoticos necessitam de estimulos fisicos e mentais constantes.|Ambientes com brinquedos de caca e prateleiras elevadas estimulam o Bengal.
+Gato|Felinos sem pelo|Sphynx|Sphynx|sem pelo, pele enrugada, corpo pequeno, orelhas grandes, olhos ovais, cauda fina|Felinos sem pelo precisam de ambientes aquecidos e protegidos.|Sphynx requer areas quentinhas e sem corrente de ar.
 
 #Lagarto
 
-Lagarto|Agamidae|Pogona vitticeps|Dragão-barbudo|diurno, sociável, aprecia calor|Terrário com iluminação UVB e áreas para escalada.|Inclua esconderijos e mantenha temperatura entre 35-40°C.
-Lagarto|Iguanidae|Iguana iguana|Iguana-verde|herbívoro, grande porte, aprecia umidade|Terrário espaçoso com alta umidade e vegetação.|Ambiente com plantas naturais e acesso à luz solar indireta.
-Lagarto|Eublepharidae|Eublepharis macularius|Gecko-leopardo|noturno, pequeno porte, fácil de cuidar|Terrário com esconderijos e substrato adequado.|Ambiente com temperatura controlada e alimentação à base de insetos.
-Lagarto|Scincidae|Tiliqua scincoides|Lagarto-de-língua-azul|diurno, dócil, escamas lisas|Terrário com áreas para se esconder e iluminação adequada.|Ambiente com substrato macio e temperatura entre 25-30°C.
-Lagarto|Teiidae|Tupinambis merianae|Teiú|onívoro, inteligente, grande porte|Terrário espaçoso com áreas para escavação e banho de sol.|Ambiente com troncos, pedras e acesso a luz UVB.
+Lagarto|Agamidae|Pogona vitticeps|Dragao-barbudo|escamas asperas, coloracao bege ou laranja, corpo achatado, crista dorsal, cauda longa, patas robustas|Terrarios para Agamidae devem ter iluminacao UVB e areas para escalada.|Inclua esconderijos e mantenha temperatura entre 35-40°C.
+Lagarto|Iguanidae|Iguana iguana|Iguana-verde|grande porte, escamas verdes, crista dorsal, cauda longa, mandibula marcante, olhos grandes|Especies de Iguanidae requerem terrarios altos e umidos, com bastante vegetacao.|Ambiente com plantas naturais e acesso a luz solar indireta.
+Lagarto|Eublepharidae|Eublepharis macularius|Gecko-leopardo|pequeno porte, corpo gordinho, olhos grandes, pele com manchas, cauda grossa, patas curtas|Terrarios de Eublepharidae precisam de esconderijos e substrato adequado.|Ambiente com temperatura controlada e alimentacao a base de insetos.
+Lagarto|Scincidae|Tiliqua scincoides|Lagarto-de-lingua-azul|corpo alongado, escamas lisas, coloracao marrom acinzentada, lingua azul, patas pequenas, cauda curta|Scincidae precisam de terrarios com iluminacao moderada e areas para se esconder.|Ambiente com substrato macio e temperatura entre 25-30°C.
+Lagarto|Teiidae|Tupinambis merianae|Teiu|grande porte, escamas pretas e brancas, cauda comprida, corpo musculoso, lingua bifurcada, focinho alongado|Teiideos requerem terrarios grandes com espaco para escavacao e exposicao solar.|Ambiente com troncos, pedras e luz UVB direta.
 
 #Coelho
 
-Coelho|Leporidae|Oryctolagus cuniculus|Coelho Anão Holandês|pequeno porte, dócil, pelagem densa|Gaiola espaçosa com substrato macio.|Proporcione tempo fora da gaiola para exercícios diários.
-Coelho|Leporidae|Oryctolagus cuniculus|Coelho Rex|médio porte, ativo, pelagem aveludada|Gaiola com espaço para movimentação e brinquedos.|Ambiente com enriquecimento e interação diária.
-Coelho|Leporidae|Oryctolagus cuniculus|Coelho Holland Lop|pequeno porte, orelhas caídas, carinhoso|Gaiola confortável com áreas para se esconder.|Ambiente tranquilo e socialização com outros coelhos.
-Coelho|Leporidae|Oryctolagus cuniculus|Coelho Lionhead|pequeno porte, pelagem longa na cabeça, curioso|Gaiola com espaço para escavação e brinquedos.|Ambiente com cuidados regulares com a pelagem.
-Coelho|Leporidae|Oryctolagus cuniculus|Coelho Chinchila|médio porte, pelagem cinza, tranquilo|Gaiola espaçosa com substrato absorvente.|Ambiente com temperatura controlada e pouca umidade.
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Anao Holandes|pequeno porte, pelagem curta, orelhas eretas, olhos grandes, corpo compacto, patas curtas|Coelhos precisam de gaiolas espaçosas com substrato macio e ventilacao adequada.|Proporcione tempo fora da gaiola para exercicios diarios.
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Rex|medio porte, pelagem aveludada, corpo arredondado, orelhas medias, olhos escuros, patas largas|Coelhos precisam de gaiolas espaçosas com substrato macio e ventilacao adequada.|Ambiente com enriquecimento e interacao diaria.
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Holland Lop|pequeno porte, orelhas caidas, pelagem densa, olhos grandes, patas curtas, corpo compacto|Coelhos precisam de gaiolas espaçosas com substrato macio e ventilacao adequada.|Ambiente tranquilo e socializacao com outros coelhos.
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Lionhead|pequeno porte, pelagem longa na cabeca, orelhas curtas, olhos escuros, corpo pequeno, patas curtas|Coelhos precisam de gaiolas espaçosas com substrato macio e ventilacao adequada.|Ambiente com cuidados regulares com a pelagem.
+Coelho|Leporidae|Oryctolagus cuniculus|Coelho Chinchila|medio porte, pelagem cinza, corpo robusto, orelhas medias, olhos escuros, patas largas|Coelhos precisam de gaiolas espaçosas com substrato macio e ventilacao adequada.|Ambiente com temperatura controlada e pouca umidade.
+
 
 
 #Peixe
 
-Peixe|Cyprinidae|Carassius auratus|Peixe-dourado|resistente, sociável, água fria|Aquário espaçoso com filtragem eficiente.|Evite superlotação e mantenha temperatura entre 18-22°C.
-Peixe|Cichlidae|Pterophyllum scalare|Acará-bandeira|territorial, elegante, água morna|Aquário com plantas e esconderijos.|Mantenha temperatura entre 24-28°C e pH levemente ácido.
-Peixe|Poeciliidae|Poecilia reticulata|Guppy|ativo, colorido, fácil de cuidar|Aquário com plantas e espaço para natação.|Mantenha temperatura entre 22-28°C e pH neutro.
-Peixe|Characidae|Paracheirodon innesi|Neon Tetra|pacífico, pequeno porte, cardume|Aquário com iluminação suave e plantas.|Mantenha temperatura entre 20-26°C e pH levemente ácido.
-Peixe|Osphronemidae|Betta splendens|Betta|territorial, colorido, labirintídeo|Aquário individual com plantas e esconderijos.|Evite correnteza forte e mantenha temperatura entre 24-30°C.
+Peixe|Cyprinidae|Carassius auratus|Peixe-dourado|corpo arredondado, coloracao dourada, nadadeiras longas, olhos grandes, escamas reluzentes, cauda dupla|Cyprinideos requerem aquarios amplos com boa filtragem e temperatura controlada.|Evite superlotacao e mantenha temperatura entre 18-22°C.
+Peixe|Cichlidae|Pterophyllum scalare|Acara-bandeira|forma triangular, nadadeiras alongadas, coloracao prateada com listras, olhos vermelhos, corpo comprimido, porte medio|Ciclideos necessitam de aquarios com vegetacao e areas de refugio.|Mantenha temperatura entre 24-28°C e pH levemente acido.
+Peixe|Poeciliidae|Poecilia reticulata|Guppy|pequeno porte, cauda em leque, machos coloridos, corpo esguio, olhos salientes, nadadeiras vibrantes|Poecilideos vivem bem em aquarios plantados e com espaco para natacao.|Mantenha temperatura entre 22-28°C e pH neutro.
+Peixe|Characidae|Paracheirodon innesi|Neon Tetra|corpo fino, listras azul e vermelha, olhos grandes, pequeno porte, coloracao translucida, nadadeiras discretas|Caracideos preferem aquarios com luz suave e vegetacao densa.|Mantenha temperatura entre 20-26°C e pH levemente acido.
+Peixe|Osphronemidae|Betta splendens|Betta|nadadeiras longas, coloracao intensa, corpo achatado, olhos pequenos, boca virada para cima, porte pequeno|Osphronemideos necessitam de aquarios individuais com plantas e agua parada.|Evite correnteza forte e mantenha temperatura entre 24-30°C.
 
 
 #Hamster
 
-Hamster|Cricetinae|Mesocricetus auratus|Hamster Sírio|solitário, noturno, escavador|Gaiola com túneis e rodas de exercício.|Evite contato com outros hamsters para prevenir brigas.
-Hamster|Cricetinae|Phodopus sungorus|Hamster Anão Russo|sociável, pequeno porte, ativo|Gaiola com compartimentos e brinquedos.|Ambiente com temperatura entre 20-24°C e substrato adequado.
-Hamster|Cricetinae|Phodopus campbelli|Hamster Anão Campbell|territorial, pequeno porte, rápido|Gaiola com esconderijos e rodas silenciosas.|Evite agrupamento com outros hamsters para prevenir conflitos.
-Hamster|Cricetinae|Phodopus roborovskii|Hamster Roborovski|muito pequeno, ágil, tímido|Gaiola com tubos e áreas para escavação.|Ambiente calmo e manuseio cuidadoso devido à sua agilidade.
-Hamster|Cricetinae|Cricetulus griseus|Hamster Chinês|pequeno porte, cauda longa, tímido|Gaiola com espaço vertical e brinquedos.|Ambiente tranquilo e interação gradual para socialização.
+Hamster|Cricetinae|Mesocricetus auratus|Hamster Sirio|porte medio, pelagem dourada, cauda curta, bochechas grandes, olhos pretos, corpo arredondado|Hamsters precisam de gaiolas espaçosas com tuneis e rodas para exercicio.|Evite contato com outros hamsters para prevenir brigas.
+Hamster|Cricetinae|Phodopus sungorus|Hamster Anao Russo|porte pequeno, pelagem acinzentada, cauda curta, olhos escuros, patas curtas, orelhas pequenas|Hamsters precisam de gaiolas espaçosas com tuneis e rodas para exercicio.|Ambiente com temperatura entre 20-24°C e substrato adequado.
+Hamster|Cricetinae|Phodopus campbelli|Hamster Anao Campbell|porte pequeno, pelagem castanha, corpo compacto, olhos escuros, orelhas medias, patas finas|Hamsters precisam de gaiolas espaçosas com tuneis e rodas para exercicio.|Evite agrupamento com outros hamsters para prevenir conflitos.
+Hamster|Cricetinae|Phodopus roborovskii|Hamster Roborovski|porte muito pequeno, pelagem clara, olhos pretos, patas rapidas, corpo leve, orelhas pequenas|Hamsters precisam de gaiolas espaçosas com tuneis e rodas para exercicio.|Ambiente calmo e manuseio cuidadoso devido a sua agilidade.
+Hamster|Cricetinae|Cricetulus griseus|Hamster Chines|porte pequeno, corpo esguio, pelagem acinzentada, cauda longa, olhos pretos, orelhas pequenas|Hamsters precisam de gaiolas espaçosas com tuneis e rodas para exercicio.|Ambiente tranquilo e interacao gradual para socializacao.
+
+
+#Ave
+
+Ave|Psittacidae|Nymphicus hollandicus|Calopsita|porte pequeno, crista amarela, bochechas alaranjadas, asas cinzas, cauda longa, olhos escuros|Ambiente com gaiola espacosa e brinquedos para estimulo.|Calopsitas precisam de interacao diaria e espaco para voar fora da gaiola.
+Ave|Fringillidae|Serinus canaria|Canario|porte pequeno, plumagem amarela vibrante, bico curto, corpo esguio, patas finas, olhos pretos|Ambiente silencioso com gaiola confortavel e poleiros.|Canarios apreciam musica suave e espacos para voo curto.
+Ave|Psittacidae|Ara macao|Arara-vermelha|porte grande, plumagem vermelha, azul e amarela, bico forte e curvo, olhos amarelos, cauda longa|Ambiente com espaco amplo e enriquecimento ambiental.|Araras necessitam de muita interacao, brinquedos resistentes e voo diario.
+Ave|Columbidae|Columba livia|Pombo-domestico|porte medio, plumagem cinza, manchas pretas nas asas, bico curto, olhos escuros, corpo robusto|Ambiente limpo com espaco para voos curtos.|Pombos precisam de espaco para socializacao e areas para descanso.
+Ave|Sturnidae|Sturnus vulgaris|Estorninho|porte medio, plumagem preta com brilho metalico, bico fino e amarelo, olhos pretos, corpo compacto|Ambiente com gaiola ampla e poleiros variados.|Estorninhos apreciam estimulos visuais e auditivos constantes.

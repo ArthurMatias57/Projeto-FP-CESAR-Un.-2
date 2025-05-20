@@ -1,5 +1,7 @@
 import os
 import sys
+import time
+import unicodedata
 
 CAMINHO_AMBIENTE = os.path.join("Projeto-FP-CESAR-Un.-2\src\BD\BDambiente.txt")
 #Importação funções globais
@@ -46,53 +48,85 @@ def imprimir_arvore(arvore):
 
 def tratandoEntradaEsp(especieAnimal):
     nomeEspecie = ''
-    especieAnimal.split('-')
     
     if '-' in especieAnimal:
-        especieAnimal.split('-')
-        especieAnimal = [i.capitalize() for i in especieAnimal]
-        for i in especieAnimal:
-            nomeEspecie = nomeEspecie[0] + '-' + nomeEspecie[1]
-    else: 
-        especieAnimal.split(' ')
-        especieAnimal = [i.capitalize() for i in especieAnimal]
-        for i in especieAnimal:
-            nomeEspecie = nomeEspecie + i
+        temp = especieAnimal.split('-')
+        temp = temp[0].capitalize() + '-' + temp[1]
+        nomeEspecie = temp
+        
+    elif ' ' in especieAnimal: 
+        temp = especieAnimal.split(' ')
+        temp = [i.capitalize() for i in temp]
+        for i in temp:
+             nomeEspecie = temp[0] + ' ' + temp[1]
+    else:
+        nomeEspecie = especieAnimal.capitalize()
+    print(nomeEspecie)
     return nomeEspecie
     
+def removeAcentuacao(texto):
+    texto = texto.lower() 
+    texto = unicodedata.normalize('NFD', texto)  # separa acentos das letras
+    texto = ''.join(c for c in texto if unicodedata.category(c) != 'Mn')  # remove os acentos
+    texto = texto.replace('ç', 'c')  # trata cedilha
+    texto = texto.strip()
+    return texto
+
 
 def recomendar_ambiente(arvore = criar_arvore(CAMINHO_AMBIENTE)):
-    raca = input("Digite a raça do seu pet (ex: Cachorro, Gato, Lagarto): ").strip().capitalize()
-    especie = input("Digite a espécie do seu pet (ou pressione Enter se não souber): ").strip()
-    caracteristicas_input = input("Digite características físicas do seu pet, separadas por vírgula (ex: ativo, sociável): ").strip()
+
+    raca = str(input("Digite a raça do seu pet (ex: Cachorro, Gato, Lagarto): ")).strip().capitalize()
+    especie = str(input("Digite a espécie do seu pet (ou pressione Enter se não souber): ")).strip()
+    caracteristicas_input = str(input("Digite características físicas do seu pet, separadas por vírgula (ex: ativo, sociável): ")).strip()
     caracteristicas = [c.strip().lower() for c in caracteristicas_input.split(',')]
 
-    #Tratando entrada especie
-    nomeEspecie = tratandoEntradaEsp(especie)
+    # Tratando entrada da espécie
+    nomeEspecie = removeAcentuacao(especie)
+    nomeEspecie = tratandoEntradaEsp(nomeEspecie)
 
     if raca not in arvore:
-        print("Raça não encontrada no sistema.")
-        return
+        print("\n Raça não encontrada no sistema. Verifique a ortografia e tente novamente.")
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        recomendar_ambiente()
 
     grupos = arvore[raca]["grupos"]
     grupo_encontrado = None
+
+    # Busca por grupo (1º filtro)
     for grupo, dados_grupo in grupos.items():
         if all(c in dados_grupo["caracteristicas"] for c in caracteristicas):
             grupo_encontrado = grupo
             break
 
-    if not grupo_encontrado:
-        print("Nenhum grupo encontrado com as características fornecidas.")
-        return
+    # Mostrar recomendação mais generalizada
+    if grupo_encontrado:
+        print(f"\nO ambiente ideal para pets do grupo '{grupo_encontrado}':")
+        print(grupos[grupo_encontrado]["recomendacao_generica"])
+    else:
+        print("\nNenhum grupo correspondente foi encontrado com base nas características fornecidas.")
+        print("Mas vamos verificar se conseguimos te ajudar com base apenas na espécie informada...\n")
+        time.sleep(1)
 
-    # Recomendação genérica (grupo):
-    print(f"\nTópicos para a criação de ambiente do pet:'{grupo_encontrado}':")
-    print(grupos[grupo_encontrado]["recomendacao_generica"])
+    # Recomendação específica da espécie (2º filtro)
+    especie_encontrada = False
+    for grupo, dados_grupo in grupos.items():
+        especies = dados_grupo["especies"]
+        for nome_cientifico, dados_especie in especies.items():
+            if removeAcentuacao(nomeEspecie).lower() == removeAcentuacao(dados_especie["nome_popular"]).lower():
+                especie_encontrada = True
+                print(f"Para a espécie '{nome_cientifico}' ou ({dados_especie['nome_popular']}) as condições ideais de ambiente seria(m):")
+                print(dados_especie["recomendacao"])
+                break
+        if especie_encontrada:
+            break
 
-    #Recomendação específica (espécie):
-    if nomeEspecie:
-        especies = grupos[grupo_encontrado]["especies"]
-        if nomeEspecie in especies:
-            print(f"\n'{nomeEspecie}' ({especies[nomeEspecie]['nome_popular']}):")
-            print(especies[nomeEspecie]["recomendacao"])
+    # Breakpoint, o parâmetro do usuário foi absurdo !!
+    if not especie_encontrada:
+        print(" Não podemos gerar condições de ambiente específica para essa espécie.")
+        print("Verifique se a grafia está correta (ex: 'Canis lupus' ou 'canis-lupus').")
+        print("Se necessário, tente novamente com outra combinação de dados.")
+
     menuSairOuReinicio(recomendar_ambiente)
+
+

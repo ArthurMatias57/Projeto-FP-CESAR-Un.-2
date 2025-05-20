@@ -1,0 +1,123 @@
+Raça: Cachorro
+  Grupo: Retrievers
+    Características: ativo, sociável, grande porte
+    Recomendação Genérica: Necessita de espaço para atividades físicas e interação social.
+      Espécie: Golden Retriever (Golden Retriever)
+        Recomendação Específica: Ambiente com quintal amplo e brinquedos interativos.
+      Espécie: Labrador Retriever (Labrador Retriever)
+        Recomendação Específica: Quintal cercado e acesso a brinquedos que estimulem a mente.
+  Grupo: Terriers
+    Características: curioso, independente, pequeno porte
+    Recomendação Genérica: Necessita de atividades que estimulem o olfato e a mente.
+      Espécie: Beagle (Beagle)
+        Recomendação Específica: Ambiente com brinquedos interativos e passeios frequentes.
+  Grupo: Boxers
+    Características: protetor, brincalhão, médio porte
+    Recomendação Genérica: Ambiente com espaço para brincadeiras e interação com crianças.
+      Espécie: Boxer (Boxer)
+        Recomendação Específica: Quintal seguro e atividades que canalizem sua energia.
+  Grupo: Setters
+    Características: ativo, sociável, grande porte
+    Recomendação Genérica: Necessita de espaço para correr e atividades ao ar livre.
+      Espécie: Setter Irlandês (Setter Irlandês)
+        Recomendação Específica: Ambiente com acesso a áreas abertas e exercícios regulares.
+Raça: Gato
+  Grupo: Felinos de pelo curto
+    Características: vocal, carinhoso, esguio
+    Recomendação Genérica: Ambiente tranquilo com locais elevados para descanso.
+      Espécie: Siamês (Siamês)
+        Recomendação Específica: Espaço com arranhadores e prateleiras para escalada.
+  Grupo: Felinos de pelo longo
+    Características: calmo, dócil, pelagem longa
+    Recomendação Genérica: Ambiente silencioso com locais confortáveis para repouso.
+      Espécie: Persa (Persa)
+        Recomendação Específica: Espaço com almofadas e cuidados regulares com a pelagem.
+  Grupo: Felinos de grande porte
+    Características: amigável, brincalhão, grande porte
+    Recomendação Genérica: Ambiente espaçoso com oportunidades para escalada.
+      Espécie: Maine Coon (Maine Coon)
+        Recomendação Específica: Áreas com estruturas verticais e brinquedos interativos.
+  Grupo: Felinos exóticos
+    Características: ativo, curioso, pelagem exótica
+    Recomendação Genérica: Ambiente enriquecido com estímulos visuais e físicos.
+      Espécie: Bengal (Bengal)
+        Recomendação Específica: Espaço com brinquedos que simulem caça e áreas para escalar.
+  Grupo: Felinos sem pelo
+    Características: afetuoso, curioso, sem pelo
+    Recomendação Genérica: Ambiente aquecido com locais macios para descanso.
+      Espécie: Sphynx (Sphynx)
+        Recomendação Específica: Espaço com cobertores e proteção contra correntes de ar.
+Raça: Lagarto
+  Grupo: Agamidae
+    Características: diurno, sociável, aprecia calor
+    Recomendação Genérica: Terrário com iluminação UVB e áreas para escalada.
+      Espécie: Pogona vitticeps (Dragão-barbudo)
+        Recomendação Específica: Inclua esconderijos e mantenha temperatura entre 35-40°C.
+  Grupo: Iguanidae
+    Características: herbívoro, grande porte, aprecia umidade
+    Recomendação Genérica: Terrário espaçoso com alta umidade e vegetação.
+      Espécie: Iguana iguana (Iguana-verde)
+        Recomendação Específica: Ambiente com plantas naturais e acesso à luz solar indireta.
+  Grupo: Eublepharidae
+    Características: noturno, pequeno porte, fácil de cuidar
+    Recomendação Genérica: Terrário com esconderijos e substrato adequado.
+      Espécie: Eublepharis macularius (Gecko-leopardo)
+        Recomendação Específica: Ambiente com temperatura controlada e alimentação à base de insetos.
+  Grupo: Scincidae
+    Características: diurno, dócil, escamas lisas
+    Recomendação Genérica: Terrário com áreas para se esconder e iluminação adequada.
+      Espécie: Tiliqua scincoides (Lagarto-de-língua-azul)
+        Recomendação Específica: Ambiente com substrato macio e temperatura entre 25-30°C.
+  Grupo: Teiidae
+    Características: onívoro, inteligente, grande porte
+    Recomendação Genérica: Terrário espaçoso com áreas para escavação e banho de sol.
+      Espécie: Tupinambis merianae (Teiú)
+        Recomendação Específica: Ambiente com troncos, pedras e acesso a luz UVB.
+Raça: Coelho
+  Grupo: Leporidae
+    Características: pequeno porte, dócil, pelagem densa
+    Recomendação Genérica: Gaiola espaçosa com substrato macio.
+      Espécie: Oryctolagus cuniculus (Coelho Chinchila)
+        Recomendação Específica: Ambiente com temperatura controlada e pouca umidade.
+Raça: Peixe
+  Grupo: Cyprinidae
+    Características: resistente, sociável, água fria
+    Recomendação Genérica: Aquário espaçoso com filtragem eficiente.
+      Espécie: Carassius auratus (Peixe-dourado)
+        Recomendação Específica: Evite superlotação e mantenha temperatura entre 18-22°C.
+  Grupo: Cichlidae
+    Características: territorial, elegante, água morna
+    Recomendação Genérica: Aquário com plantas e esconderijos.
+      Espécie: Pterophyllum scalare (Acará-bandeira)
+        Recomendação Específica: Mantenha temperatura entre 24-28°C e pH levemente ácido.
+  Grupo: Poeciliidae
+    Características: ativo, colorido, fácil de cuidar
+    Recomendação Genérica: Aquário com plantas e espaço para natação.
+      Espécie: Poecilia reticulata (Guppy)
+        Recomendação Específica: Mantenha temperatura entre 22-28°C e pH neutro.
+  Grupo: Characidae
+    Características: pacífico, pequeno porte, cardume
+    Recomendação Genérica: Aquário com iluminação suave e plantas.
+      Espécie: Paracheirodon innesi (Neon Tetra)
+        Recomendação Específica: Mantenha temperatura entre 20-26°C e pH levemente ácido.
+  Grupo: Osphronemidae
+    Características: territorial, colorido, labirintídeo
+    Recomendação Genérica: Aquário individual com plantas e esconderijos.
+      Espécie: Betta splendens (Betta)
+        Recomendação Específica: Evite correnteza forte e mantenha temperatura entre 24-30°C.
+Raça: Hamster
+  Grupo: Cricetinae
+    Características: solitário, noturno, escavador
+    Recomendação Genérica: Gaiola com túneis e rodas de exercício.
+      Espécie: Mesocricetus auratus (Hamster Sírio)
+        Recomendação Específica: Evite contato com outros hamsters para prevenir brigas.
+      Espécie: Phodopus sungorus (Hamster Anão Russo)
+        Recomendação Específica: Ambiente com temperatura entre 20-24°C e substrato adequado.
+      Espécie: Phodopus campbelli (Hamster Anão Campbell)
+        Recomendação Específica: Evite agrupamento com outros hamsters para prevenir conflitos.
+      Espécie: Phodopus roborovskii (Hamster Roborovski)
+        Recomendação Específica: Ambiente calmo e manuseio cuidadoso devido à sua agilidade.
+      Espécie: Cricetulus griseus (Hamster Chinês)
+        Recomendação Específica: Ambiente tranquilo e interação gradual para socialização.
+
+{'Cachorro': {'grupos': {'Retrievers': {'caracteristicas': ['ativo', 'sociável', 'grande porte'], 'recomendacao_generica': 'Necessita de espaço para atividades físicas e interação social.', 'especies': {'Golden Retriever': {'nome_popular': 'Golden Retriever', 'recomendacao': 'Ambiente com quintal amplo e brinquedos interativos.'}, 'Labrador Retriever': {'nome_popular': 'Labrador Retriever', 'recomendacao': 'Quintal cercado e acesso a brinquedos que estimulem a mente.'}}}
