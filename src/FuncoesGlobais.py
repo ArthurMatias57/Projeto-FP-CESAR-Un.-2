@@ -1,6 +1,5 @@
 import os
 
-
 """
 Escopo global
 
@@ -19,8 +18,8 @@ def template():
 
 # Função unificada para menu de saída ou reinício
 def menuSairOuReinicio(funcLoop):
-    from Inicio import inicio
-    
+    from Funcoes.MenuPrincipal import main
+
     while True:
         print("-" * 60)
         escolha = input("O que você deseja fazer agora?\n"
@@ -29,7 +28,7 @@ def menuSairOuReinicio(funcLoop):
                        "Escolha: ").strip()
         print("-" * 60)
         if escolha == "1":
-            inicio()
+            main()
         elif escolha == "2":
             funcLoop()
         else:

@@ -1,8 +1,10 @@
 import os
-
-
+import sys
 
 CAMINHO_AMBIENTE = os.path.join("Projeto-FP-CESAR-Un.-2\src\BD\BDambiente.txt")
+#Importação funções globais
+sys.path.append("Projeto-FP-CESAR-Un.-2\src")
+from FuncoesGlobais import *
 
 
 def criar_arvore(caminho_arquivo):
@@ -42,12 +44,30 @@ def imprimir_arvore(arvore):
                 print(f"      Espécie: {especie} ({dados_especie['nome_popular']})")
                 print(f"        Recomendação Específica: {dados_especie['recomendacao']}")
 
+def tratandoEntradaEsp(especieAnimal):
+    nomeEspecie = ''
+    
+    if '-' in especieAnimal:
+        especieAnimal.split('-')
+        especieAnimal = [i.capitalize() for i in especieAnimal]
+        for i in especieAnimal:
+            nomeEspecie = nomeEspecie[0] + '-' + nomeEspecie[1]
+    else: 
+        especieAnimal.split(' ')
+        especieAnimal = [i.capitalize() for i in especieAnimal]
+        for i in especieAnimal:
+            nomeEspecie = nomeEspecie + i
+    return nomeEspecie
+    
 
-def recomendar_ambiente(arvore):
-    raca = input("Digite a raça do seu pet (ex: Cachorro, Gato, Lagarto): ").strip()
+def recomendar_ambiente(arvore = criar_arvore(CAMINHO_AMBIENTE)):
+    raca = input("Digite a raça do seu pet (ex: Cachorro, Gato, Lagarto): ").strip().capitalize()
     especie = input("Digite a espécie do seu pet (ou pressione Enter se não souber): ").strip()
     caracteristicas_input = input("Digite características físicas do seu pet, separadas por vírgula (ex: ativo, sociável): ").strip()
     caracteristicas = [c.strip().lower() for c in caracteristicas_input.split(',')]
+
+    #Tratando entrada especie
+    #nomeEspecie = tratandoEntradaEsp(especie)
 
     if raca not in arvore:
         print("Raça não encontrada no sistema.")
@@ -64,15 +84,14 @@ def recomendar_ambiente(arvore):
         print("Nenhum grupo encontrado com as características fornecidas.")
         return
 
-    print(f"\nRecomendação Genérica para o grupo '{grupo_encontrado}':")
+    # Recomendação genérica (grupo):
+    print(f"\nTópicos para a criação de ambiente do pet:'{grupo_encontrado}':")
     print(grupos[grupo_encontrado]["recomendacao_generica"])
 
+    #Recomendação específica (espécie):
     if especie:
         especies = grupos[grupo_encontrado]["especies"]
         if especie in especies:
-            print(f"\nRecomendação Específica para a espécie '{especie}' ({especies[especie]['nome_popular']}):")
+            print(f"\n'{especie}' ({especies[especie]['nome_popular']}):")
             print(especies[especie]["recomendacao"])
-        else:
-            print("Espécie não encontrada no grupo fornecido.")
-#imprimir_arvore(criar_arvore(CAMINHO_AMBIENTE))
-recomendar_ambiente(criar_arvore(CAMINHO_AMBIENTE))
+    menuSairOuReinicio(recomendar_ambiente)
