@@ -183,6 +183,7 @@ def read():
         print("Ainda não foi cadastrado nenhum pet.")
     lin()
     menuSairOuReinicio(CRUD)
+    
 
 def edit():
     if list_pets:
@@ -283,6 +284,7 @@ def edit():
         print("Nenhum pet cadastrado para editar.")
     lin()
     menuSairOuReinicio(CRUD)
+    
 
 def remove():
     if list_pets:
@@ -319,6 +321,7 @@ def remove():
         print("Nenhum pet cadastrado para remover.")
     lin()
     menuSairOuReinicio(CRUD)
+    
 
 def CRUD():
     # Limpar a lista antes de carregar

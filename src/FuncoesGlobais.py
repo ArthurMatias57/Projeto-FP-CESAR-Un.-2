@@ -6,6 +6,7 @@ Escopo global
 
 """
 
+#Transição entre telas
 def transicao():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Carregando ", end='', flush=True)
@@ -35,8 +36,10 @@ def menuSairOuReinicio(funcLoop):
                        "Escolha: ").strip()
         print("-" * 60)
         if escolha == "1":
+            transicao()
             main()
         elif escolha == "2":
+            transicao()
             funcLoop()
         else:
             print("Opção inválida. Tente novamente.")

@@ -46,6 +46,7 @@ def imprimir_arvore(arvore):
 
 def tratandoEntradaEsp(especieAnimal):
     nomeEspecie = ''
+    especieAnimal.split('-')
     
     if '-' in especieAnimal:
         especieAnimal.split('-')
@@ -67,7 +68,7 @@ def recomendar_ambiente(arvore = criar_arvore(CAMINHO_AMBIENTE)):
     caracteristicas = [c.strip().lower() for c in caracteristicas_input.split(',')]
 
     #Tratando entrada especie
-    #nomeEspecie = tratandoEntradaEsp(especie)
+    nomeEspecie = tratandoEntradaEsp(especie)
 
     if raca not in arvore:
         print("Raça não encontrada no sistema.")
@@ -89,9 +90,9 @@ def recomendar_ambiente(arvore = criar_arvore(CAMINHO_AMBIENTE)):
     print(grupos[grupo_encontrado]["recomendacao_generica"])
 
     #Recomendação específica (espécie):
-    if especie:
+    if nomeEspecie:
         especies = grupos[grupo_encontrado]["especies"]
-        if especie in especies:
-            print(f"\n'{especie}' ({especies[especie]['nome_popular']}):")
-            print(especies[especie]["recomendacao"])
+        if nomeEspecie in especies:
+            print(f"\n'{nomeEspecie}' ({especies[nomeEspecie]['nome_popular']}):")
+            print(especies[nomeEspecie]["recomendacao"])
     menuSairOuReinicio(recomendar_ambiente)
