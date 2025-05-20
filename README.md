@@ -1,105 +1,64 @@
-# Projeto-FP-CESAR-Un.-2
-
-Projeto de simulação de um "sistema de um Pet Shop" com algumas funcionalidades diferenciadas !!
-
 🐾 PetCare - Sistema de Gerenciamento de Pets
-PetCare é uma aplicação simples e intuitiva para gerenciamento de informações de pets em um petshop ou ambiente doméstico. Desenvolvida com Python e Tkinter Designer, a aplicação simula funcionalidades essenciais como cadastro de pets, gerenciamento de eventos importantes (vacinação, consultas), definição de metas de saúde, e sugestões personalizadas baseadas na espécie e idade.
+PetCare é uma aplicação simples e intuitiva desenvolvida em Python com interface gráfica em Tkinter Designer, ideal para gerenciamento de informações de pets em pet shops ou residências. O sistema oferece funcionalidades como cadastro de pets, registro de eventos (vacinas, consultas), definição de metas de saúde e sugestões personalizadas baseadas na espécie e idade do animal.
 
 🚀 Funcionalidades
 📋 CRUD de Pets
-
 Cadastro, visualização, edição e exclusão de pets.
 
-Armazenamento em arquivos .txt.
+Armazenamento local em arquivos .txt.
 
 📅 Registro de Eventos
+Marcação de datas para vacinação, consultas veterinárias e outros eventos relevantes.
 
-Marcação de datas para vacinações, consultas veterinárias e outros eventos.
-
-Atualização dinâmica nos dados do pet.
+Atualização dinâmica dos dados vinculados ao pet.
 
 🎯 Metas de Saúde
+Definição de metas individuais (ex.: perda de peso, frequência de passeios, alimentação).
 
-Defina objetivos como perda de peso, frequência de passeios e alimentação.
-
-Visualize o progresso diretamente no menu.
+Visualização e acompanhamento do progresso.
 
 ✨ Sugestões Personalizadas
+Recomendações automáticas com base na idade, espécie e características do pet.
 
-Geração automática de recomendações com base na idade, espécie e características do pet.
+Utiliza uma estrutura hierárquica em árvore para aumentar a precisão das sugestões.
 
-Estrutura hierárquica baseada em árvore para maior precisão.
+🧠 Ambiente Personalizado com Estrutura em Árvore
+Algoritmo em desenvolvimento baseado em árvore de decisão.
 
-🧭 Menu Principal (GUI)
-
-Interface gráfica amigável desenvolvida com Tkinter Designer.
-
-Acesso centralizado a todas as funcionalidades.
-
-- Criação de ambiente usando conceitos de árvores:
-
-  - Implementei minha funcionalidade: um algoritmo baseado em estrutura de árvore que gera ambientes ideais para pets a partir dos filtros de características físicas, e raça. Ainda não o terminei, mas já tenho código e BD, vou fazer o debug amn sem falta.
-
+Geração de ambientes ideais para o pet a partir de filtros como raça e características físicas.
 
 🛠 Estrutura do Projeto
-bash
-Copiar
-Editar
-📁 projeto_petshop/
+├── MenuPrincipal.py               # Interface principal 
+├── CRUD.py                        # Funções de cadastro, edição e exclusão
+├── cadastro_eventos.py           # Registro de eventos (vacinas, consultas)
+├── metas_saude.py                # Definição e visualização de metas
+├── SugestoesPersonalizadas.py    # Algoritmo de recomendações
 │
-├── 📄 MenuPrincipal.py            # Interface principal (Tkinter Designer)
-├── 📄 CRUD.py                     # Funções de cadastro, edição e remoção de pets
-├── 📄 cadastro_eventos.py        # Registro e atualização de eventos
-├── 📄 metas_saude.py             # Sistema de definição e leitura de metas
-├── 📄 SugestoesPersonalizadas.py # Algoritmo de recomendações baseado em hierarquia
-├── 📁 BD/
-│   ├── pets.txt                  # Dados dos pets
-│   ├── eventos.txt               # Eventos registrados
-│   ├── metas.txt                 # Metas definidas
-│   └── recomendacoes.txt         # Estrutura de árvore de recomendações
-📌 Todos os dados são armazenados localmente em arquivos .txt.
+└── BD/
+    ├── pets.txt                  # Dados dos pets
+    ├── eventos.txt              # Eventos registrados
+    ├── metas.txt                # Metas definidas
+    └── recomendacoes.txt        # Estrutura em árvore com as recomendações
 
-▶️ Como Executar
-Pré-requisitos:
-
-Python 3.8+
-
-Tkinter (já incluso no Python padrão)
-
-Tkinter Designer (para editar o layout, opcional)
-
-Clone o repositório:
-
-bash
-Copiar
-Editar
-git clone https://github.com/seuusuario/petcare.git
-cd petcare
-Execute a aplicação:
-
-bash
-Copiar
-Editar
-python MenuPrincipal.py
 📚 Exemplos de Uso
-Cadastrar novo pet: Use a opção “Adicionar Pet” no menu e preencha os dados básicos.
+Cadastrar um novo pet: Acesse a opção “Adicionar Pet” e preencha os dados.
 
-Definir meta: Clique em “Metas de Saúde” e insira uma nova meta por pet.
+Registrar evento: Vá para a aba de eventos e adicione vacinações ou consultas.
 
-Ver recomendações: Acesse a aba “Sugestões” para dicas de cuidados personalizadas.
+Definir metas de saúde: Insira objetivos personalizados para cada pet.
+
+Ver sugestões: Consulte dicas de cuidados personalizadas com base nas informações cadastradas.
 
 🧩 Tecnologias Utilizadas
 Python 3
 
-Estrutura de arquivos .txt como banco de dados
+Tkinter (interface gráfica)
 
-Estrutura de árvore para lógica de recomendações
+Estrutura de arquivos .txt como banco de dados local
 
-🤝 Contribuições
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+Algoritmo com estrutura de árvore para lógica de recomendações
 
-📄 Licença
-Este projeto está licenciado sob a MIT License.
+Navegação centralizada entre as funcionalidades.
 ![Projeto FP - Turma A docx_001](https://github.com/user-attachments/assets/3fb4372b-93ab-4a15-8b0c-6215c3bdc40a)
 
 ![Projeto FP - Turma A docx_002](https://github.com/user-attachments/assets/ac8a1f22-77b9-43d8-b7df-fb71f8471dc7)
