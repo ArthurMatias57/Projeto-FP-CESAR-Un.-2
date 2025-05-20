@@ -42,8 +42,20 @@ Geração de ambientes ideais para o pet a partir de filtros como raça e caract
 
 🛠 Estrutura do Projeto
 
-<pre> ```text projeto_petshop/ ├── MenuPrincipal.py # Interface principal ├── CRUD.py # Funções de cadastro, edição e exclusão ├── cadastro_eventos.py # Registro de eventos (vacinas, consultas) ├── metas_saude.py # Definição e visualização de metas ├── SugestoesPersonalizadas.py # Algoritmo de recomendações │ └── BD/ ├── pets.txt # Dados dos pets ├── eventos.txt # Eventos registrados ├── metas.txt # Metas definidas └── recomendacoes.txt # Estrutura em árvore com as recomendações ``` </pre>
-
+```text
+projeto_petshop/
+├── MenuPrincipal.py               # Interface principal
+├── CRUD.py                        # Funções de cadastro, edição e exclusão
+├── cadastro_eventos.py           # Registro de eventos (vacinas, consultas)
+├── metas_saude.py                # Definição e visualização de metas
+├── SugestoesPersonalizadas.py    # Algoritmo de recomendações
+│
+└── BD/
+    ├── pets.txt                  # Dados dos pets
+    ├── eventos.txt              # Eventos registrados
+    ├── metas.txt                # Metas definidas
+    └── recomendacoes.txt        # Estrutura em árvore com as recomendações
+```
 
 
 
