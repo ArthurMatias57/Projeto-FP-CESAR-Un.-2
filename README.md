@@ -1,4 +1,5 @@
 🐾 PetCare - Sistema de Gerenciamento de Pets
+
 PetCare é uma aplicação simples e intuitiva desenvolvida em Python com interface gráfica em Tkinter Designer, ideal para gerenciamento de informações de pets em pet shops ou residências. O sistema oferece funcionalidades como cadastro de pets, registro de eventos (vacinas, consultas), definição de metas de saúde e sugestões personalizadas baseadas na espécie e idade do animal.
 
 🚀 Funcionalidades
