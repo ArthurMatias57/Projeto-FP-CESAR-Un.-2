@@ -113,9 +113,9 @@ def recomendar_ambiente(arvore = criar_arvore(CAMINHO_AMBIENTE)):
     for grupo, dados_grupo in grupos.items():
         especies = dados_grupo["especies"]
         for nome_cientifico, dados_especie in especies.items():
-            if removeAcentuacao(nomeEspecie).lower() == removeAcentuacao(dados_especie["nome_popular"]).lower():
+            if nomeEspecie == dados_especie["nome_popular"]:
                 especie_encontrada = True
-                print(f"Para a espécie '{nome_cientifico}' ou ({dados_especie['nome_popular']}) as condições ideais de ambiente seria(m):")
+                print(f"Para a espécie ({dados_especie['nome_popular']}) as condições ideais de ambiente seria(m):")
                 print(dados_especie["recomendacao"])
                 break
         if especie_encontrada:
